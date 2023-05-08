@@ -19,26 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xadmc.gitee.io","root":"/Stouyx/","images":"/Stouyx/images","scheme":"Muse","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/Stouyx/js/config.js"></script>
 
-    <meta name="description" content="算法ing">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Stouyx&#39;s blog">
-<meta property="og:url" content="https://xadmc.gitee.io/stouyx/index.html">
+    <meta name="description" content="不能重载的运算符： 赋值运算符重载模板为  1234567891011121314151617181920people operator &#x3D; (const people &amp; a)&amp;#123;	delete [] char*;	赋值；	return *this&amp;#125;#include &lt;cstring&gt;#include &lt;sstream&gt;class HugeInt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="运算符重载">
+<meta property="og:url" content="https://xadmc.gitee.io/stouyx/2023/05/08/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/index.html">
 <meta property="og:site_name" content="Stouyx&#39;s blog">
-<meta property="og:description" content="算法ing">
+<meta property="og:description" content="不能重载的运算符： 赋值运算符重载模板为  1234567891011121314151617181920people operator &#x3D; (const people &amp; a)&amp;#123;	delete [] char*;	赋值；	return *this&amp;#125;#include &lt;cstring&gt;#include &lt;sstream&gt;class HugeInt">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xadmc.gitee.io/Stouyx/.io//2.png">
+<meta property="article:published_time" content="2023-05-08T10:32:04.000Z">
+<meta property="article:modified_time" content="2023-05-08T10:55:06.372Z">
 <meta property="article:author" content="Wang Yuxuan">
-<meta property="article:tag" content="NUAA">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xadmc.gitee.io/Stouyx/.io//2.png">
 
 
-<link rel="canonical" href="https://xadmc.gitee.io/stouyx/">
+<link rel="canonical" href="https://xadmc.gitee.io/stouyx/2023/05/08/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://xadmc.gitee.io/stouyx/2023/05/08/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/","path":"2023/05/08/运算符重载/","title":"运算符重载"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Stouyx's blog</title>
+<title>运算符重载 | Stouyx's blog</title>
   
 
 
@@ -72,7 +76,7 @@
 
     <a href="/Stouyx/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Stouyx's blog</h1>
+      <p class="site-title">Stouyx's blog</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">keep doing！</p>
@@ -99,7 +103,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -112,6 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%83%BD%E9%87%8D%E8%BD%BD%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">不能重载的运算符：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">赋值运算符重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">算术运算符的重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text">关系运算符的重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">单目运算符：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">6.</span> <span class="nav-text">其他</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,16 +169,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://xadmc.gitee.io/stouyx/2023/05/08/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,13 +193,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Stouyx's blog">
+      <meta itemprop="name" content="运算符重载 | Stouyx's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Stouyx/2023/05/08/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" class="post-title-link" itemprop="url">运算符重载</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          运算符重载
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -225,8 +231,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="不能重载的运算符："><a href="#不能重载的运算符：" class="headerlink" title="不能重载的运算符："></a>不能重载的运算符：</h2><p><img src="/Stouyx/.io//2.png" alt="图片"></p>
+    <div class="post-body" itemprop="articleBody"><h2 id="不能重载的运算符："><a href="#不能重载的运算符：" class="headerlink" title="不能重载的运算符："></a>不能重载的运算符：</h2><p><img src="/Stouyx/.io//2.png" alt="图片"></p>
 <h2 id="赋值运算符重载"><a href="#赋值运算符重载" class="headerlink" title="赋值运算符重载"></a>赋值运算符重载</h2><p>模板为 </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">people operator = (const people &amp; a)</span><br><span class="line">&#123;</span><br><span class="line">	delete [] char*;</span><br><span class="line">	赋值；</span><br><span class="line">	return *this</span><br><span class="line">&#125;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;sstream&gt;</span><br><span class="line">class HugeInteger&#123;</span><br><span class="line">public:</span><br><span class="line">	HugeInteger&amp; operator=(const HugeInteger &amp;h);</span><br><span class="line">private:</span><br><span class="line">    string str;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">HugeInteger&amp; HugeInteger::operator=(const HugeInteger &amp;h)</span><br><span class="line">&#123;</span><br><span class="line">    this-&gt;str=h.str;</span><br><span class="line">    return *this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="算术运算符的重载"><a href="#算术运算符的重载" class="headerlink" title="算术运算符的重载"></a>算术运算符的重载</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">people operator + (const people &amp; a)</span><br><span class="line">&#123;</span><br><span class="line">	people b;</span><br><span class="line">	b.r=r+a.r;</span><br><span class="line">	return b;</span><br><span class="line">&#125;</span><br><span class="line">+、++、–、- -、+=、-=、/、*</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">class complex&#123;</span><br><span class="line">public:</span><br><span class="line">    complex(double r=0,double i=0)&#123;</span><br><span class="line">        this-&gt;r=r;</span><br><span class="line">        this-&gt;i=i;</span><br><span class="line">    &#125;</span><br><span class="line">    complex operator+(complex&amp;);</span><br><span class="line">    complex operator-(complex&amp;);</span><br><span class="line">    complex operator+=(complex&amp;);</span><br><span class="line">private:</span><br><span class="line">    double r, i;</span><br><span class="line">&#125;;</span><br><span class="line">complex complex::operator+(complex &amp;c)&#123;</span><br><span class="line">    return complex(r+c.r,i+c.i);</span><br><span class="line">&#125;</span><br><span class="line">complex complex::operator-(complex &amp;c)&#123;</span><br><span class="line">    return complex(r-c.r,i-c.i);</span><br><span class="line">&#125;</span><br><span class="line">complex complex::operator+=(complex &amp;c)&#123;</span><br><span class="line">    r+=c.r;</span><br><span class="line">    i+=c.i;</span><br><span class="line">    return *this;//return complex(r,i)亦可</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -238,7 +243,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">people operator ++ (int)</span><br><span class="line">&#123;</span><br><span class="line">	people a(r);    用当前对象的数据初始化a</span><br><span class="line">	</span><br><span class="line">	a.r++;</span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>在这里给出重载&lt;&lt;,&gt;&gt;,[]的方法<br>模板：<br>(1)cout&lt;&lt;：<br>friend ostream &amp;operator&lt;&lt;(ostream &amp;cout，const classname&amp; 实例对象) &#x2F; ostream &amp;operator&lt;&lt;(ostream &amp;cout)<br>(2)cin&gt;&gt;：friend istream &amp;operator&gt;&gt;(istream &amp;cin，classname&amp; 实例对象) &#x2F; istream &amp;operator&gt;&gt;(istream &amp;cin)<br>(3)[ ]：typename &amp; operator[ ] (形参表)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt; </span><br><span class="line">#include &lt;cstring&gt; </span><br><span class="line">using namespace std;</span><br><span class="line">class String</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    string str;   </span><br><span class="line">public:</span><br><span class="line">	String(string s)&#123;str=s;&#125;</span><br><span class="line">	char &amp; operator[](int i);</span><br><span class="line">	friend ostream &amp; operator&lt;&lt;(ostream &amp; cout, const String &amp; st);</span><br><span class="line">    friend istream &amp; operator&gt;&gt;(istream &amp; cin, String &amp; st);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">char &amp;String::operator[](int i)</span><br><span class="line">&#123;</span><br><span class="line">    return str[i];</span><br><span class="line">&#125;</span><br><span class="line">ostream &amp;operator&lt;&lt;(ostream &amp; cout, const String &amp;st)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; st.str;</span><br><span class="line">    return cout;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">istream &amp;operator&gt;&gt;(istream &amp; cin, String &amp;st)</span><br><span class="line">&#123;</span><br><span class="line">    char temp[40];</span><br><span class="line">    is.get(temp, 40);</span><br><span class="line">    if (cin)</span><br><span class="line">        st = temp;</span><br><span class="line">    while (cin &amp;&amp; cin.get() != &#x27;\n&#x27;)</span><br><span class="line">        continue;</span><br><span class="line">    return cin;</span><br><span class="line">&#125;</span><br><span class="line">istream&amp; operator&gt;&gt;(istream&amp; ins,_Point&amp; target)</span><br><span class="line">&#123;</span><br><span class="line">        //输入到两个变量里面</span><br><span class="line">        ins&gt;&gt;target.x&gt;&gt;target.y;</span><br><span class="line">        return ins;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
@@ -246,99 +250,44 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/Stouyx/images/wechatpay.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/Stouyx/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Stouyx/2023/05/08/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/" rel="prev" title="静态成员函数">
+                  <i class="fa fa-chevron-left"></i> 静态成员函数
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://xadmc.gitee.io/stouyx/2023/05/08/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Stouyx/images/avatar.jpg">
-      <meta itemprop="name" content="Wang Yuxuan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Stouyx's blog">
-      <meta itemprop="description" content="算法ing">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Stouyx's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Stouyx/2023/05/08/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/" class="post-title-link" itemprop="url">静态成员函数</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-05-08 15:32:04 / 修改时间：18:55:21" itemprop="dateCreated datePublished" datetime="2023-05-08T15:32:04+08:00">2023-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Stouyx/categories/%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>静态成员函数的声明也很简单，就是在类的成员函数前加上static关键字即可，和静态成员一样，静态成员函数也是属于类的，它并不属于任何对象，当调用静态成员函数时应该使用类名和域运算符“∷”，当然也可以使用对象调用操作，但是这样的操作并不意味着静态成员函数属于这个对象，它只是被这个对象共享而已，这样也就决定了静态成员函数中是不能访问本类中的非静态数据成员的，它是不能访问非静态数据成员的，在c++中静态成员函数主要用来访问静态数据成员而不访问非静态数据成员</p>
-<p>ps：<br>static int count()<br>name.count()<br>不表示count()属于name</p>
-<p>1.静态成员函数不能调用非静态成员函数，但是反过来是可以的</p>
-<p>2.静态成员函数没有this指针，也就是说静态成员函数不能使用修饰符(也就是函数后面的const关键字)</p>
-<p>3.静态成员函数的地址可用普通函数指针储存，而普通成员函数地址需要用 类成员函数指针来储存。</p>
-<p>总结：其实声明为静态，不论是静态数据成员还是静态成员函数，它们都是不依赖于对象而存在的，类在定义后并不分配存储空间，而是在定义类的对象的时候才分配存储空间，相反静态的数据成员和静态的成员函数是已经在内存中开辟了内存空间了，所以静态数据成员可以独立的访问在任何类对象没有建立起来都可以访问，并且静态成员函数不可以调用非静态成员函数，因为非静态成员函数只有在类对象建立以后才可以调用，相反则是可以的。<br><img src="/Stouyx/.io//1.png"><br>1）静态数据成员</p>
-<p>对象的成员函数（没有static的成员函数）内部，可以直接访问“静态数据成员”<br>类的静态成员函数（有static的成员函数）内部，可以直接访问“静态数据成员”<br>即：所有的成员函数，都可以访问静态数据成员。<br>类不能直接访问普通的静态数据成员（Human::humanCount 非法）</p>
-<p>2）静态成员函数</p>
-<p>对象可以直接访问静态成员函数<br>类可以直接访问静态成员函数（Human::getHumanCount()）<br>在类的静态成员函数（类的静态方法）内部，不能直接访问this指针和对象的数据成员！<br>在类的静态成员函数（类的静态方法）内部，只能访问类的数据成员<br>&#x2F;&#x2F;定义Student类</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">class Student                  </span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">//定义构造函数</span><br><span class="line">Student(int n,int a,float s):num(n),age(a),score(s)&#123; &#125;      </span><br><span class="line">void total();</span><br><span class="line">//声明静态成员函数</span><br><span class="line">static float average();      </span><br><span class="line">private:</span><br><span class="line">    int num;</span><br><span class="line">    int age;</span><br><span class="line">    float score;</span><br><span class="line">    //静态数据成员，累计学生的总分</span><br><span class="line">    static float sum; </span><br><span class="line">    //静态数据成员，累计学生的人数</span><br><span class="line">    static int count;           </span><br><span class="line">&#125;;</span><br><span class="line">//在全局作用域对静态数据成员初始化，如果不赋予初值，则使用其默认值零</span><br><span class="line">float Student::sum;                     </span><br><span class="line">int Student::count;</span><br><span class="line">//定义非静态成员函数</span><br><span class="line">void Student::total()                    </span><br><span class="line">&#123;</span><br><span class="line">    //累加总分</span><br><span class="line">    sum+=score;</span><br><span class="line">    //累计已统计的人数</span><br><span class="line">    count++;                               </span><br><span class="line">&#125;</span><br><span class="line">//定义静态成员函数</span><br><span class="line">float  Student::average()                  </span><br><span class="line">&#123;</span><br><span class="line">    return(sum/count);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Student stud[3]=&#123;    </span><br><span class="line">    //定义对象数组并初始化</span><br><span class="line">    Student(1001,18,70),</span><br><span class="line">    Student(1002,19,78),</span><br><span class="line">    Student(1005,20,98)</span><br><span class="line">&#125;;</span><br><span class="line">int n;</span><br><span class="line">std::cout&lt;&lt;&quot;please input the number of students: &quot;;</span><br><span class="line"> //输入需要求前面多少名学生的平均成绩</span><br><span class="line">std::cin&gt;&gt;n;                              </span><br><span class="line">//调用3次total函数</span><br><span class="line">for(int i=0;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    stud[i].total();</span><br><span class="line">&#125;</span><br><span class="line">//调用静态成员函数</span><br><span class="line">std::cout&lt;&lt;&quot;the average score of &quot;&lt;&lt;n&lt;&lt;&quot; students is &quot;&lt;&lt;Student::average( )&lt;&lt;std::endl;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
