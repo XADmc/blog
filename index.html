@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/Stouyx/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,6 +165,88 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Stouyx/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Yuxuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Stouyx's blog">
+      <meta itemprop="description" content="算法ing">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Stouyx's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/" class="post-title-link" itemprop="url">隐藏重载覆盖</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-05-09 10:04:03 / 修改时间：10:06:30" itemprop="dateCreated datePublished" datetime="2023-05-09T10:04:03+08:00">2023-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Stouyx/categories/%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。</p>
+<h2 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h2><p>子类对象优先考虑子类域自身成员（成员变量和成员函数）<br>    隐藏发生的主要原因，就是当子类有父类的同名成员时，子类对象访问该成员时，会发生冲突。所以编译器的处理方式是，优先考虑子类域中的自身成员。即，子类对象访问某成员时，如ch.m_m 或者ch.f(),成员变量和成员函数都一样。编译器首先在子类域中检索，如果在子类域中找到该成员，则检索结束，返回该成员进行访问。如果在子类域中找不到该成员，则去父类域中检索。如果父类域中存在，则返回该成员进行访问，如果父类域中也不存在，则编译错误，该成员无效。</p>
+<p>  当父子类域都存在同一成员时，编译器优先在子类中检索，就算父类域中也存在该同名成员，也不会被检索到。因此，父类域中的该成员被子类域中的该同名成员隐藏，即访问时完全以为该成员不存在，如果想访问父类域中的该成员，只能通过显示调用的方式，即：ch.Father::m_m;<br>重载：相同域的同名不同参函数</p>
+<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>　　<br>　　重载必须是发生在同一个域中的两个同名不同形参之间的。如果一个在父类域一个在子类域，是不会存在重载的，属于隐藏的情况。调用时，只会在子类域中搜索，如果形参不符合，会认为没有该函数，而不会去父类域中搜索。<br>覆盖是指派生类函数覆盖基类函数，特征是：<br>（1）不同的范围（分别位于派生类与基类）；<br>（2）函数名字相同；<br>（3）参数相同；<br>（4）基类函数必须有virtual 关键字。<br>令人迷惑的隐藏规则<br>本来仅仅区别重载与覆盖并不算困难，但是C++的隐藏规则使问题复杂性陡然增加。<br>这里“隐藏”是指派生类的函数屏蔽了与其同名的基类函数，规则如下：<br>（1）如果派生类的函数与基类的函数同名，但是参数不同。此时，不论有无virtual<br>关键字，基类的函数将被隐藏（注意别与重载混淆）。<br>（2）如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual<br>关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

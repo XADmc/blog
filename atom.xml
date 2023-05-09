@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2023-05-08T16:00:14.785Z</updated>
+  <updated>2023-05-09T02:06:30.001Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>隐藏重载覆盖</title>
+    <link href="https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/"/>
+    <id>https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/</id>
+    <published>2023-05-09T02:04:03.000Z</published>
+    <updated>2023-05-09T02:06:30.001Z</updated>
+    
+    <content type="html"><![CDATA[<p>存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。</p><h2 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h2><p>子类对象优先考虑子类域自身成员（成员变量和成员函数）<br>    隐藏发生的主要原因，就是当子类有父类的同名成员时，子类对象访问该成员时，会发生冲突。所以编译器的处理方式是，优先考虑子类域中的自身成员。即，子类对象访问某成员时，如ch.m_m 或者ch.f(),成员变量和成员函数都一样。编译器首先在子类域中检索，如果在子类域中找到该成员，则检索结束，返回该成员进行访问。如果在子类域中找不到该成员，则去父类域中检索。如果父类域中存在，则返回该成员进行访问，如果父类域中也不存在，则编译错误，该成员无效。</p><p>  当父子类域都存在同一成员时，编译器优先在子类中检索，就算父类域中也存在该同名成员，也不会被检索到。因此，父类域中的该成员被子类域中的该同名成员隐藏，即访问时完全以为该成员不存在，如果想访问父类域中的该成员，只能通过显示调用的方式，即：ch.Father::m_m;<br>重载：相同域的同名不同参函数</p><h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>　　<br>　　重载必须是发生在同一个域中的两个同名不同形参之间的。如果一个在父类域一个在子类域，是不会存在重载的，属于隐藏的情况。调用时，只会在子类域中搜索，如果形参不符合，会认为没有该函数，而不会去父类域中搜索。<br>覆盖是指派生类函数覆盖基类函数，特征是：<br>（1）不同的范围（分别位于派生类与基类）；<br>（2）函数名字相同；<br>（3）参数相同；<br>（4）基类函数必须有virtual 关键字。<br>令人迷惑的隐藏规则<br>本来仅仅区别重载与覆盖并不算困难，但是C++的隐藏规则使问题复杂性陡然增加。<br>这里“隐藏”是指派生类的函数屏蔽了与其同名的基类函数，规则如下：<br>（1）如果派生类的函数与基类的函数同名，但是参数不同。此时，不论有无virtual<br>关键字，基类的函数将被隐藏（注意别与重载混淆）。<br>（2）如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual<br>关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。&lt;/p&gt;
+&lt;h2 id=&quot;隐藏&quot;&gt;&lt;a href=&quot;#隐藏&quot; class=&quot;headerlink&quot; title=&quot;隐藏&quot;&gt;&lt;/a&gt;隐藏&lt;/h2&gt;&lt;p&gt;子类对象优先考虑子类域自身成员（成员变量和</summary>
+      
+    
+    
+    
+    <category term="语法" scheme="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://xadmc.gitee.io/stouyx/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>停车场管理系统</title>
