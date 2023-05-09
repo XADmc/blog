@@ -19,28 +19,38 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xadmc.gitee.io","root":"/Stouyx/","images":"/Stouyx/images","scheme":"Muse","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/Stouyx/js/config.js"></script>
 
-    <meta name="description" content="存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。 隐藏子类对象优先考虑子类域自身成员（成员变量和成员函数）    隐藏发生的主要原因，就是当子类有父类的同名成员时，子类对象访问该成员时，会发生冲突。所以编译器的处理方式是，优先考虑子类域中的自身成员。即，子类对象访问某成员时，如ch.m_m 或者ch.f(),成员变量和成员函数都一样。编译器首先在子类域中检索，如果">
+    <meta name="description" content="为什么需要构造函数  每次需要调用SetDate函数十分麻烦此时需要构造函数来出👋 构造函数的概念特征能够保证对象被初始化。构造函数是特殊的成员函数，主要任务是初始化，而不是开空间。（虽然构造函数的名字叫构造）构造函数是特殊的成员函数，主要特征如下：① 构造函数的函数名和类名是相同的② 构造函数无返回值③ 构造函数可以重载③ 会在对象实例化时自动调用对象定义出来。    不给参数时就会调用无参构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="隐藏重载覆盖">
-<meta property="og:url" content="https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/index.html">
+<meta property="og:title" content="构造函数">
+<meta property="og:url" content="https://xadmc.gitee.io/stouyx/2023/05/09/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Stouyx&#39;s blog">
-<meta property="og:description" content="存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。 隐藏子类对象优先考虑子类域自身成员（成员变量和成员函数）    隐藏发生的主要原因，就是当子类有父类的同名成员时，子类对象访问该成员时，会发生冲突。所以编译器的处理方式是，优先考虑子类域中的自身成员。即，子类对象访问某成员时，如ch.m_m 或者ch.f(),成员变量和成员函数都一样。编译器首先在子类域中检索，如果">
+<meta property="og:description" content="为什么需要构造函数  每次需要调用SetDate函数十分麻烦此时需要构造函数来出👋 构造函数的概念特征能够保证对象被初始化。构造函数是特殊的成员函数，主要任务是初始化，而不是开空间。（虽然构造函数的名字叫构造）构造函数是特殊的成员函数，主要特征如下：① 构造函数的函数名和类名是相同的② 构造函数无返回值③ 构造函数可以重载③ 会在对象实例化时自动调用对象定义出来。    不给参数时就会调用无参构">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-09T02:04:03.000Z">
-<meta property="article:modified_time" content="2023-05-09T02:06:30.001Z">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/05/09/oxnHQ6.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/05/09/oxnbyn.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/05/09/oxnMmR.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/05/09/oxn2cz.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/05/09/oxnTVA.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/05/09/oxn9X5.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/05/09/oxnc8m.png">
+<meta property="og:image" content="https://s1.imagehub.cc/images/2023/05/09/image.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/05/09/oxnsrY.png">
+<meta property="article:published_time" content="2023-05-09T08:38:33.000Z">
+<meta property="article:modified_time" content="2023-05-09T09:01:24.331Z">
 <meta property="article:author" content="Wang Yuxuan">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.helloimg.com/images/2023/05/09/oxnHQ6.png">
 
 
-<link rel="canonical" href="https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/">
+<link rel="canonical" href="https://xadmc.gitee.io/stouyx/2023/05/09/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/","path":"2023/05/09/隐藏重载覆盖/","title":"隐藏重载覆盖"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://xadmc.gitee.io/stouyx/2023/05/09/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/","path":"2023/05/09/构造函数/","title":"构造函数"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>隐藏重载覆盖 | Stouyx's blog</title>
+<title>构造函数 | Stouyx's blog</title>
   
 
 
@@ -114,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%90%E8%97%8F"><span class="nav-number">1.</span> <span class="nav-text">隐藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">重载</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">为什么需要构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E6%A6%82%E5%BF%B5%E7%89%B9%E5%BE%81"><span class="nav-number">2.</span> <span class="nav-text">构造函数的概念特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">默认构造函数：</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,7 +188,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/">
+    <link itemprop="mainEntityOfPage" href="https://xadmc.gitee.io/stouyx/2023/05/09/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Stouyx/images/avatar.jpg">
@@ -191,12 +201,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="隐藏重载覆盖 | Stouyx's blog">
+      <meta itemprop="name" content="构造函数 | Stouyx's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          隐藏重载覆盖
+          构造函数
         </h1>
 
         <div class="post-meta-container">
@@ -208,7 +218,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-05-09 10:04:03 / 修改时间：10:06:30" itemprop="dateCreated datePublished" datetime="2023-05-09T10:04:03+08:00">2023-05-09</time>
+      <time title="创建时间：2023-05-09 16:38:33 / 修改时间：17:01:24" itemprop="dateCreated datePublished" datetime="2023-05-09T16:38:33+08:00">2023-05-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -229,11 +239,30 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。</p>
-<h2 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h2><p>子类对象优先考虑子类域自身成员（成员变量和成员函数）<br>    隐藏发生的主要原因，就是当子类有父类的同名成员时，子类对象访问该成员时，会发生冲突。所以编译器的处理方式是，优先考虑子类域中的自身成员。即，子类对象访问某成员时，如ch.m_m 或者ch.f(),成员变量和成员函数都一样。编译器首先在子类域中检索，如果在子类域中找到该成员，则检索结束，返回该成员进行访问。如果在子类域中找不到该成员，则去父类域中检索。如果父类域中存在，则返回该成员进行访问，如果父类域中也不存在，则编译错误，该成员无效。</p>
-<p>  当父子类域都存在同一成员时，编译器优先在子类中检索，就算父类域中也存在该同名成员，也不会被检索到。因此，父类域中的该成员被子类域中的该同名成员隐藏，即访问时完全以为该成员不存在，如果想访问父类域中的该成员，只能通过显示调用的方式，即：ch.Father::m_m;<br>重载：相同域的同名不同参函数</p>
-<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>　　<br>　　重载必须是发生在同一个域中的两个同名不同形参之间的。如果一个在父类域一个在子类域，是不会存在重载的，属于隐藏的情况。调用时，只会在子类域中搜索，如果形参不符合，会认为没有该函数，而不会去父类域中搜索。<br>覆盖是指派生类函数覆盖基类函数，特征是：<br>（1）不同的范围（分别位于派生类与基类）；<br>（2）函数名字相同；<br>（3）参数相同；<br>（4）基类函数必须有virtual 关键字。<br>令人迷惑的隐藏规则<br>本来仅仅区别重载与覆盖并不算困难，但是C++的隐藏规则使问题复杂性陡然增加。<br>这里“隐藏”是指派生类的函数屏蔽了与其同名的基类函数，规则如下：<br>（1）如果派生类的函数与基类的函数同名，但是参数不同。此时，不论有无virtual<br>关键字，基类的函数将被隐藏（注意别与重载混淆）。<br>（2）如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual<br>关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="为什么需要构造函数"><a href="#为什么需要构造函数" class="headerlink" title="为什么需要构造函数"></a>为什么需要构造函数</h2><img src="https://www.helloimg.com/images/2023/05/09/oxnHQ6.png" width="60%" height="70%">
 
+<p>每次需要调用SetDate函数<br>十分麻烦<br>此时需要构造函数来出👋</p>
+<h2 id="构造函数的概念特征"><a href="#构造函数的概念特征" class="headerlink" title="构造函数的概念特征"></a>构造函数的概念特征</h2><p>能够保证对象被初始化。<br>构造函数是特殊的成员函数，主要任务是初始化，而不是开空间。（虽然构造函数的名字叫构造）<br>构造函数是特殊的成员函数，主要特征如下：<br>① 构造函数的函数名和类名是相同的<br>② 构造函数无返回值<br>③ 构造函数可以重载<br>③ 会在对象实例化时自动调用对象定义出来。</p>
+<img src="https://www.helloimg.com/images/2023/05/09/oxnbyn.png" width="70%" height="80%">
+<img src="https://www.helloimg.com/images/2023/05/09/oxnMmR.png" width="100%" height="20%">
+
+<p>不给参数时就会调用无参构造函数，给参数则会调用带参构造函数<br>！！！！<br>注意事项：<br>① 构造函数是特殊的，不是常规的成员函数，不能直接调 </p>
+<p>d1.Date();</p>
+<p>② 如果通过无参构造函数创建对象，对象后面不用跟括号，否则就成了函数声明。</p>
+<img src="https://www.helloimg.com/images/2023/05/09/oxn2cz.png" width="70%" height="80%">
+
+<p>③ 这里如果调用带参构造函数，我们需要传递三个参数（这里我们没设缺省） 。<br>④ 如果你没有自己定义构造函数（类中未显式定义），C++ 编译器会自动生成一个无参的默认构造函数。当然，如果你自己定义了，编译器就不会帮你生成了。<br><img src="https://www.helloimg.com/images/2023/05/09/oxnTVA.png" width="60%" height="80%"></p>
+<p>输出：</p>
+<img src="https://www.helloimg.com/images/2023/05/09/oxn9X5.png" width="80%" height="20%">
+
+<h2 id="默认构造函数："><a href="#默认构造函数：" class="headerlink" title="默认构造函数："></a>默认构造函数：</h2><p>任何一个类的默认构造函数，只有三种：<br>① 无参的构造函数<br>② 全缺省的构造函数<br>③ 我们不写，编译器自己生成的构造函数<br>并且默认构造函数只能有一个！<br>注意事项：<br>① 无参构造函数、全缺省构造函数、我们没写编译器默认生成的无参构造函数，都可以认为是默认成员函数。<br>② 语法上无参和全缺省可以同时存在，但如果同时存在会引发二义性：<br>可以同时存在，但是不能调用构造函数否则报错</p>
+<p>无参构造函数，全缺省构造函数：</p>
+<img src="https://www.helloimg.com/images/2023/05/09/oxnc8m.png" width="70%" height="40%">
+
+<p>举例：</p>
+<img src="https://s1.imagehub.cc/images/2023/05/09/image.png" width="70%" height="80%">
+
+<img src="https://www.helloimg.com/images/2023/05/09/oxnsrY.png" width="70%" height="80%">
     </div>
 
     
@@ -268,14 +297,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Stouyx/2023/05/08/%E5%81%9C%E8%BD%A6%E5%9C%BA%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" rel="prev" title="停车场管理系统">
-                  <i class="fa fa-chevron-left"></i> 停车场管理系统
+                <a href="/Stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/" rel="prev" title="隐藏重载覆盖">
+                  <i class="fa fa-chevron-left"></i> 隐藏重载覆盖
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Stouyx/2023/05/09/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" rel="next" title="构造函数">
-                  构造函数 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
