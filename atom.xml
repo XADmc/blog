@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2023-05-15T08:09:07.056Z</updated>
+  <updated>2023-05-15T08:15:44.362Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>虚函数</title>
+    <link href="https://xadmc.gitee.io/stouyx/2023/05/15/%E8%99%9A%E5%87%BD%E6%95%B0/"/>
+    <id>https://xadmc.gitee.io/stouyx/2023/05/15/%E8%99%9A%E5%87%BD%E6%95%B0/</id>
+    <published>2023-05-15T08:12:09.000Z</published>
+    <updated>2023-05-15T08:15:44.362Z</updated>
+    
+    <content type="html"><![CDATA[<p>C++中的虚函数是用于实现多态性的一种机制。虚函数可以在基类中声明并在派生类中重写，当通过基类指针或引用调用虚函数时，实际调用的是派生类中的实现，这种行为被称为动态绑定。</p><h2 id="虚函数的作用"><a href="#虚函数的作用" class="headerlink" title="虚函数的作用"></a>虚函数的作用</h2><p>允许派生类重写基类中定义的函数。在基类中声明虚函数，如果派生类中有同名函数并且使用了关键字 virtual 进行了声明，那么这个函数就是虚函数，可以被派生类重写。<br>实现动态绑定。如果使用基类指针或引用调用虚函数，实际上调用的是指向对象的实际类型所实现的版本，而不是基类中的版本。这使得程序能够以一种更加灵活的方式使用对象，可以在运行时动态地确定调用哪个函数。<br>虚函数的应用广泛，特别是在面向对象程序设计中，常常被用来实现多态性和基于接口的编程，提高了程序的可扩展性和可维护性。<br>虚函数用于弥补覆盖的缺陷<br>对函数进行覆盖后，在基类中调用覆盖后的函数还是会调用基类中的函数，<br>但是当基类中的函数为虚函数，那么将调用子类中的覆盖后的函数</p><h2 id="虚函数的定义"><a href="#虚函数的定义" class="headerlink" title="虚函数的定义"></a>虚函数的定义</h2><p>在实现c++多态时会用到虚函数。虚函数使用的其核心目的是通过基类访问派生类定义的函数。所谓虚函数就是在基类定义一个未实现的函数名，为了提高程序的可读性，建议后代中虚函数都加上virtual关键字。一般格式：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line"> base();</span><br><span class="line"> virtual void test(); //定义的一个虚函数</span><br><span class="line">private:</span><br><span class="line"> char *basePStr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>上述代码在基类中定义了一个test的虚函数，所有可以在其子类重新定义父类的做法这种行为成为覆盖（override）,或者为重写。</p><p>常见用法：声明基类指针，利用指针指向任意一个子类对象，调用相关的虚函数，动态绑定，由于编写代码时不能确定被调用的是基类函数还是那个派生类函数，所以被称为“”虚“”函数。如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</p><h2 id="纯虚函数"><a href="#纯虚函数" class="headerlink" title="纯虚函数"></a>纯虚函数</h2><p>定义：</p><p>纯虚函数是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都要定义自己的实现方法。在基类中实现纯虚函数的方法是在函数原型后加 &#x3D;0:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtual void funtion1()=0</span><br></pre></td></tr></table></figure><p>在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理。</p><p>为了解决上述问题，引入了纯虚函数的概念，将函数定义为纯虚函数（方法：virtual ReturnType Function()&#x3D; 0;），则编译器要求在派生类中必须予以重写以实现多态性。同时含有纯虚拟函数的类称为抽象类，它不能生成对象。这样就很好地解决了上述两个问题。</p><p>声明了纯虚函数的类是一个抽象类。所以，用户不能创建类的实例，只能创建它的派生类的实例。</p><p>纯虚函数最显著的特征是：它们必须在继承类中重新声明函数（不要后面的＝0，否则该派生类也不能实例化），而且它们在抽象类中往往没有定义。</p><p>定义纯虚函数的目的在于，使派生类仅仅只是继承函数的接口。</p>]]></content>
+    
+    
+    <summary type="html">构造函数详解</summary>
+    
+    
+    
+    <category term="语法" scheme="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://xadmc.gitee.io/stouyx/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>继承</title>
