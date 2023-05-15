@@ -194,4 +194,19 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>基本引用</title>
+    <url>/Stouyx/2023/05/15/%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="实际上是起别名"><a href="#实际上是起别名" class="headerlink" title="实际上是起别名"></a>实际上是起别名</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a=1001;</span><br><span class="line">int &amp;b = a;</span><br><span class="line">b=1002</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1002；</span><br></pre></td></tr></table></figure>
+
+<h2 id="用在形参："><a href="#用在形参：" class="headerlink" title="用在形参："></a>用在形参：</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void change(int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">	b=1003;</span><br><span class="line">&#125;</span><br><span class="line">int a=1001;</span><br><span class="line">change(a);</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1003；</span><br></pre></td></tr></table></figure>
+<h2 id="用于类"><a href="#用于类" class="headerlink" title="用于类"></a>用于类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class mm</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	string&amp; getname()</span><br><span class="line">	&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">protected:</span><br><span class="line">	string name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mm a;</span><br><span class="line">a.getname()=&quot;Tom&quot;</span><br><span class="line">//此时a中的name 为Tom</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>

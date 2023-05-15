@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2023-05-15T08:15:44.362Z</updated>
+  <updated>2023-05-15T08:20:44.421Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基本引用</title>
+    <link href="https://xadmc.gitee.io/stouyx/2023/05/15/%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8/"/>
+    <id>https://xadmc.gitee.io/stouyx/2023/05/15/%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8/</id>
+    <published>2023-05-15T08:17:31.000Z</published>
+    <updated>2023-05-15T08:20:44.421Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="实际上是起别名"><a href="#实际上是起别名" class="headerlink" title="实际上是起别名"></a>实际上是起别名</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int a=1001;</span><br><span class="line">int &amp;b = a;</span><br><span class="line">b=1002</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1002；</span><br></pre></td></tr></table></figure><h2 id="用在形参："><a href="#用在形参：" class="headerlink" title="用在形参："></a>用在形参：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void change(int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">b=1003;</span><br><span class="line">&#125;</span><br><span class="line">int a=1001;</span><br><span class="line">change(a);</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1003；</span><br></pre></td></tr></table></figure><h2 id="用于类"><a href="#用于类" class="headerlink" title="用于类"></a>用于类</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class mm</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">string&amp; getname()</span><br><span class="line">&#123;</span><br><span class="line">return name;</span><br><span class="line">&#125;</span><br><span class="line">protected:</span><br><span class="line">string name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mm a;</span><br><span class="line">a.getname()=&quot;Tom&quot;</span><br><span class="line">//此时a中的name 为Tom</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">构造函数详解</summary>
+    
+    
+    
+    <category term="语法" scheme="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://xadmc.gitee.io/stouyx/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>虚函数</title>
