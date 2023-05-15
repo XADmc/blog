@@ -209,4 +209,34 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>this指针</title>
+    <url>/Stouyx/2023/05/15/this%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<p>成员函数调用本身时用this指针</p>
+<img src="https://s1.imagehub.cc/images/2023/05/15/image10d895e6d4e49f3a.png" width="90%" height="40%">
+
+<p>当构造函数中的形参与数据成员重名时必须用this指针</p>
+<img src="https://s1.imagehub.cc/images/2023/05/15/image89ba83e49e0238b7.png" width="90%" height="40%">
+]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>指向基类的指针</title>
+    <url>/Stouyx/2023/05/15/%E6%8C%87%E5%90%91%E5%9F%BA%E7%B1%BB%E7%9A%84%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<p>指向基类的指针可以指向子类<br>animal *p;(基类)<br>monkey c;(子类)<br>p&#x3D;&amp;c;</p>
+<p>如果子类覆盖了基类的成员，但是通过基类指针所访问的成员仍是基类的成员，而不是子类的成员</p>
+<p>当指向子类的基类指针调用被覆盖了的成员时，假如基类中的被覆盖成员为虚函数，则调用子类中的成员，如果其不是虚函数，则调用基类中的成员。</p>
+]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
