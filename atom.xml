@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2023-05-15T08:27:33.887Z</updated>
+  <updated>2023-05-20T14:36:18.983Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -17,16 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mac软件无法打开</title>
+    <link href="https://xadmc.gitee.io/stouyx/2023/05/20/Mac%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80/"/>
+    <id>https://xadmc.gitee.io/stouyx/2023/05/20/Mac%E8%BD%AF%E4%BB%B6%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80/</id>
+    <published>2023-05-20T14:04:49.000Z</published>
+    <updated>2023-05-20T14:36:18.983Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="常见的三种报错方式"><a href="#常见的三种报错方式" class="headerlink" title="常见的三种报错方式"></a>常见的三种报错方式</h2><p>xxx已损坏，无法打开，你应该将它移到废纸篓解决办法<br>打不开 xxx，因为它来自身份不明的开发者<br>打不开xxxx，因为 Apple 无法检查其是否包含恶意软件</p><h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>1.打开系统设置<br>2.点击左侧边栏的隐私与安全性<br>3.在下方找到安全性，选择允许从任何来源下载应用程序</p><img src="https://www.helloimg.com/images/2023/05/20/oEU1Vr.png" width="60%" height="90%"><p>假如你不想找的话，可以在终端中输入指令完成此操作<br>在终端中输入【sudo spctl –master-disable】</p><img src="https://s1.imagehub.cc/images/2023/05/20/18001684592389_.pic.png" width="80%" height="60%"><p>多数情况下这种方法可以解决<br>在打开新文件的时候，依旧有弹窗<br>再次打开隐私与安全，能够找到是否打开该程序的按钮，点击打开即可</p><h2 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h2><p>通过终端执行命令行代码来绕过应用签名认证<br>打开终端，输入以下命令：<br>sudo xattr -rd com.apple.quarantine &#x2F;Applications&#x2F;xxxxxx.app</p><p>将上面的 xxxxxx.app 换成你的App名称，比如 dev-sidecar.app</p><p>sudo xattr -rd com.apple.quarantine &#x2F;Applications&#x2F;dev-sidecar.app</p><p>假如你对App路径不熟悉你可以用以下办法：</p><p>1.复制以下命令粘贴到终端</p><p>sudo xattr -rd com.apple.quarantine </p><p>2.打开访达，点击左侧的应用程序，将应用拖进终端中，此时会在终端中自动生成App路径，然后按键盘的回车键，输入密码，再按回车键，完成。</p><img src="https://s1.imagehub.cc/images/2023/05/20/18011684592766_.pic_hd.png" width="90%" height="50%"><p>注意： quarantine 与后面的&#x2F;之间必须有个空格</p>]]></content>
+    
+    
+    <summary type="html">无法打开Mac上的软件解决方案</summary>
+    
+    
+    
+    <category term="语法" scheme="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://xadmc.gitee.io/stouyx/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>this指针</title>
     <link href="https://xadmc.gitee.io/stouyx/2023/05/15/this%E6%8C%87%E9%92%88/"/>
     <id>https://xadmc.gitee.io/stouyx/2023/05/15/this%E6%8C%87%E9%92%88/</id>
     <published>2023-05-15T08:23:15.000Z</published>
-    <updated>2023-05-15T08:27:33.887Z</updated>
+    <updated>2023-05-20T14:37:31.352Z</updated>
     
     <content type="html"><![CDATA[<p>成员函数调用本身时用this指针</p><img src="https://s1.imagehub.cc/images/2023/05/15/image10d895e6d4e49f3a.png" width="90%" height="40%"><p>当构造函数中的形参与数据成员重名时必须用this指针</p><img src="https://s1.imagehub.cc/images/2023/05/15/image89ba83e49e0238b7.png" width="90%" height="40%">]]></content>
     
     
-    <summary type="html">构造函数详解</summary>
+    <summary type="html">this指针应用情况</summary>
     
     
     
@@ -42,12 +63,12 @@
     <link href="https://xadmc.gitee.io/stouyx/2023/05/15/%E6%8C%87%E5%90%91%E5%9F%BA%E7%B1%BB%E7%9A%84%E6%8C%87%E9%92%88/"/>
     <id>https://xadmc.gitee.io/stouyx/2023/05/15/%E6%8C%87%E5%90%91%E5%9F%BA%E7%B1%BB%E7%9A%84%E6%8C%87%E9%92%88/</id>
     <published>2023-05-15T08:21:24.000Z</published>
-    <updated>2023-05-15T08:22:21.641Z</updated>
+    <updated>2023-05-20T14:36:45.397Z</updated>
     
     <content type="html"><![CDATA[<p>指向基类的指针可以指向子类<br>animal *p;(基类)<br>monkey c;(子类)<br>p&#x3D;&amp;c;</p><p>如果子类覆盖了基类的成员，但是通过基类指针所访问的成员仍是基类的成员，而不是子类的成员</p><p>当指向子类的基类指针调用被覆盖了的成员时，假如基类中的被覆盖成员为虚函数，则调用子类中的成员，如果其不是虚函数，则调用基类中的成员。</p>]]></content>
     
     
-    <summary type="html">构造函数详解</summary>
+    <summary type="html">对指向基类的指针进行解释</summary>
     
     
     
@@ -63,12 +84,12 @@
     <link href="https://xadmc.gitee.io/stouyx/2023/05/15/%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8/"/>
     <id>https://xadmc.gitee.io/stouyx/2023/05/15/%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8/</id>
     <published>2023-05-15T08:17:31.000Z</published>
-    <updated>2023-05-15T08:20:44.421Z</updated>
+    <updated>2023-05-20T14:37:05.867Z</updated>
     
     <content type="html"><![CDATA[<h2 id="实际上是起别名"><a href="#实际上是起别名" class="headerlink" title="实际上是起别名"></a>实际上是起别名</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int a=1001;</span><br><span class="line">int &amp;b = a;</span><br><span class="line">b=1002</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1002；</span><br></pre></td></tr></table></figure><h2 id="用在形参："><a href="#用在形参：" class="headerlink" title="用在形参："></a>用在形参：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void change(int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">b=1003;</span><br><span class="line">&#125;</span><br><span class="line">int a=1001;</span><br><span class="line">change(a);</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1003；</span><br></pre></td></tr></table></figure><h2 id="用于类"><a href="#用于类" class="headerlink" title="用于类"></a>用于类</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class mm</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">string&amp; getname()</span><br><span class="line">&#123;</span><br><span class="line">return name;</span><br><span class="line">&#125;</span><br><span class="line">protected:</span><br><span class="line">string name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mm a;</span><br><span class="line">a.getname()=&quot;Tom&quot;</span><br><span class="line">//此时a中的name 为Tom</span><br></pre></td></tr></table></figure>]]></content>
     
     
-    <summary type="html">构造函数详解</summary>
+    <summary type="html">三种基本引用类型</summary>
     
     
     
@@ -84,12 +105,12 @@
     <link href="https://xadmc.gitee.io/stouyx/2023/05/15/%E8%99%9A%E5%87%BD%E6%95%B0/"/>
     <id>https://xadmc.gitee.io/stouyx/2023/05/15/%E8%99%9A%E5%87%BD%E6%95%B0/</id>
     <published>2023-05-15T08:12:09.000Z</published>
-    <updated>2023-05-15T08:15:44.362Z</updated>
+    <updated>2023-05-20T14:37:15.954Z</updated>
     
     <content type="html"><![CDATA[<p>C++中的虚函数是用于实现多态性的一种机制。虚函数可以在基类中声明并在派生类中重写，当通过基类指针或引用调用虚函数时，实际调用的是派生类中的实现，这种行为被称为动态绑定。</p><h2 id="虚函数的作用"><a href="#虚函数的作用" class="headerlink" title="虚函数的作用"></a>虚函数的作用</h2><p>允许派生类重写基类中定义的函数。在基类中声明虚函数，如果派生类中有同名函数并且使用了关键字 virtual 进行了声明，那么这个函数就是虚函数，可以被派生类重写。<br>实现动态绑定。如果使用基类指针或引用调用虚函数，实际上调用的是指向对象的实际类型所实现的版本，而不是基类中的版本。这使得程序能够以一种更加灵活的方式使用对象，可以在运行时动态地确定调用哪个函数。<br>虚函数的应用广泛，特别是在面向对象程序设计中，常常被用来实现多态性和基于接口的编程，提高了程序的可扩展性和可维护性。<br>虚函数用于弥补覆盖的缺陷<br>对函数进行覆盖后，在基类中调用覆盖后的函数还是会调用基类中的函数，<br>但是当基类中的函数为虚函数，那么将调用子类中的覆盖后的函数</p><h2 id="虚函数的定义"><a href="#虚函数的定义" class="headerlink" title="虚函数的定义"></a>虚函数的定义</h2><p>在实现c++多态时会用到虚函数。虚函数使用的其核心目的是通过基类访问派生类定义的函数。所谓虚函数就是在基类定义一个未实现的函数名，为了提高程序的可读性，建议后代中虚函数都加上virtual关键字。一般格式：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line"> base();</span><br><span class="line"> virtual void test(); //定义的一个虚函数</span><br><span class="line">private:</span><br><span class="line"> char *basePStr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>上述代码在基类中定义了一个test的虚函数，所有可以在其子类重新定义父类的做法这种行为成为覆盖（override）,或者为重写。</p><p>常见用法：声明基类指针，利用指针指向任意一个子类对象，调用相关的虚函数，动态绑定，由于编写代码时不能确定被调用的是基类函数还是那个派生类函数，所以被称为“”虚“”函数。如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</p><h2 id="纯虚函数"><a href="#纯虚函数" class="headerlink" title="纯虚函数"></a>纯虚函数</h2><p>定义：</p><p>纯虚函数是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都要定义自己的实现方法。在基类中实现纯虚函数的方法是在函数原型后加 &#x3D;0:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtual void funtion1()=0</span><br></pre></td></tr></table></figure><p>在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理。</p><p>为了解决上述问题，引入了纯虚函数的概念，将函数定义为纯虚函数（方法：virtual ReturnType Function()&#x3D; 0;），则编译器要求在派生类中必须予以重写以实现多态性。同时含有纯虚拟函数的类称为抽象类，它不能生成对象。这样就很好地解决了上述两个问题。</p><p>声明了纯虚函数的类是一个抽象类。所以，用户不能创建类的实例，只能创建它的派生类的实例。</p><p>纯虚函数最显著的特征是：它们必须在继承类中重新声明函数（不要后面的＝0，否则该派生类也不能实例化），而且它们在抽象类中往往没有定义。</p><p>定义纯虚函数的目的在于，使派生类仅仅只是继承函数的接口。</p>]]></content>
     
     
-    <summary type="html">构造函数详解</summary>
+    <summary type="html">虚函数详解</summary>
     
     
     
