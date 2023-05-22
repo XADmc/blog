@@ -32,6 +32,22 @@
       </tags>
   </entry>
   <entry>
+    <title>this指针</title>
+    <url>/Stouyx/2023/05/15/this%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<p>成员函数调用本身时用this指针</p>
+<img src="https://s1.imagehub.cc/images/2023/05/15/image10d895e6d4e49f3a.png" width="90%" height="40%">
+
+<p>当构造函数中的形参与数据成员重名时必须用this指针</p>
+<img src="https://s1.imagehub.cc/images/2023/05/15/image89ba83e49e0238b7.png" width="90%" height="40%">
+]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>停车场管理系统</title>
     <url>/Stouyx/2023/05/08/%E5%81%9C%E8%BD%A6%E5%9C%BA%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>系统演示视频：<a href="https://b23.tv/2scBrDx">🔗</a><br>源代码：</p>
@@ -44,12 +60,11 @@
       </tags>
   </entry>
   <entry>
-    <title>基本引用</title>
-    <url>/Stouyx/2023/05/15/%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="实际上是起别名"><a href="#实际上是起别名" class="headerlink" title="实际上是起别名"></a>实际上是起别名</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a=1001;</span><br><span class="line">int &amp;b = a;</span><br><span class="line">b=1002</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1002；</span><br></pre></td></tr></table></figure>
-
-<h2 id="用在形参："><a href="#用在形参：" class="headerlink" title="用在形参："></a>用在形参：</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void change(int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">	b=1003;</span><br><span class="line">&#125;</span><br><span class="line">int a=1001;</span><br><span class="line">change(a);</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1003；</span><br></pre></td></tr></table></figure>
-<h2 id="用于类"><a href="#用于类" class="headerlink" title="用于类"></a>用于类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class mm</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	string&amp; getname()</span><br><span class="line">	&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">protected:</span><br><span class="line">	string name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mm a;</span><br><span class="line">a.getname()=&quot;Tom&quot;</span><br><span class="line">//此时a中的name 为Tom</span><br></pre></td></tr></table></figure>
+    <title>指向基类的指针</title>
+    <url>/Stouyx/2023/05/15/%E6%8C%87%E5%90%91%E5%9F%BA%E7%B1%BB%E7%9A%84%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<p>指向基类的指针可以指向子类<br>animal *p;(基类)<br>monkey c;(子类)<br>p&#x3D;&amp;c;</p>
+<p>如果子类覆盖了基类的成员，但是通过基类指针所访问的成员仍是基类的成员，而不是子类的成员</p>
+<p>当指向子类的基类指针调用被覆盖了的成员时，假如基类中的被覆盖成员为虚函数，则调用子类中的成员，如果其不是虚函数，则调用基类中的成员。</p>
 ]]></content>
       <categories>
         <category>语法</category>
@@ -85,6 +100,21 @@
 <img src="https://s1.imagehub.cc/images/2023/05/09/image.png" width="70%" height="80%">
 
 <img src="https://www.helloimg.com/images/2023/05/09/oxnsrY.png" width="70%" height="80%">]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基本引用</title>
+    <url>/Stouyx/2023/05/15/%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="实际上是起别名"><a href="#实际上是起别名" class="headerlink" title="实际上是起别名"></a>实际上是起别名</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a=1001;</span><br><span class="line">int &amp;b = a;</span><br><span class="line">b=1002</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1002；</span><br></pre></td></tr></table></figure>
+
+<h2 id="用在形参："><a href="#用在形参：" class="headerlink" title="用在形参："></a>用在形参：</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void change(int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">	b=1003;</span><br><span class="line">&#125;</span><br><span class="line">int a=1001;</span><br><span class="line">change(a);</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1003；</span><br></pre></td></tr></table></figure>
+<h2 id="用于类"><a href="#用于类" class="headerlink" title="用于类"></a>用于类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class mm</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	string&amp; getname()</span><br><span class="line">	&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">protected:</span><br><span class="line">	string name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mm a;</span><br><span class="line">a.getname()=&quot;Tom&quot;</span><br><span class="line">//此时a中的name 为Tom</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>语法</category>
       </categories>
@@ -183,6 +213,21 @@
       </tags>
   </entry>
   <entry>
+    <title>隐藏重载覆盖</title>
+    <url>/Stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/</url>
+    <content><![CDATA[<p>存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。</p>
+<h2 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h2><p>子类对象优先考虑子类域自身成员（成员变量和成员函数）<br>    隐藏发生的主要原因，就是当子类有父类的同名成员时，子类对象访问该成员时，会发生冲突。所以编译器的处理方式是，优先考虑子类域中的自身成员。即，子类对象访问某成员时，如ch.m_m 或者ch.f(),成员变量和成员函数都一样。编译器首先在子类域中检索，如果在子类域中找到该成员，则检索结束，返回该成员进行访问。如果在子类域中找不到该成员，则去父类域中检索。如果父类域中存在，则返回该成员进行访问，如果父类域中也不存在，则编译错误，该成员无效。</p>
+<p>  当父子类域都存在同一成员时，编译器优先在子类中检索，就算父类域中也存在该同名成员，也不会被检索到。因此，父类域中的该成员被子类域中的该同名成员隐藏，即访问时完全以为该成员不存在，如果想访问父类域中的该成员，只能通过显示调用的方式，即：ch.Father::m_m;<br>重载：相同域的同名不同参函数</p>
+<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>　　<br>　　重载必须是发生在同一个域中的两个同名不同形参之间的。如果一个在父类域一个在子类域，是不会存在重载的，属于隐藏的情况。调用时，只会在子类域中搜索，如果形参不符合，会认为没有该函数，而不会去父类域中搜索。<br>覆盖是指派生类函数覆盖基类函数，特征是：<br>（1）不同的范围（分别位于派生类与基类）；<br>（2）函数名字相同；<br>（3）参数相同；<br>（4）基类函数必须有virtual 关键字。<br>令人迷惑的隐藏规则<br>本来仅仅区别重载与覆盖并不算困难，但是C++的隐藏规则使问题复杂性陡然增加。<br>这里“隐藏”是指派生类的函数屏蔽了与其同名的基类函数，规则如下：<br>（1）如果派生类的函数与基类的函数同名，但是参数不同。此时，不论有无virtual<br>关键字，基类的函数将被隐藏（注意别与重载混淆）。<br>（2）如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual<br>关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）。</p>
+]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>运算符重载</title>
     <url>/Stouyx/2023/05/08/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/</url>
     <content><![CDATA[<h2 id="不能重载的运算符："><a href="#不能重载的运算符：" class="headerlink" title="不能重载的运算符："></a>不能重载的运算符：</h2><img src="https://www.helloimg.com/images/2023/05/09/oxnnSP.png" width="100%" height="100%">
@@ -206,27 +251,10 @@
       </tags>
   </entry>
   <entry>
-    <title>指向基类的指针</title>
-    <url>/Stouyx/2023/05/15/%E6%8C%87%E5%90%91%E5%9F%BA%E7%B1%BB%E7%9A%84%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<p>指向基类的指针可以指向子类<br>animal *p;(基类)<br>monkey c;(子类)<br>p&#x3D;&amp;c;</p>
-<p>如果子类覆盖了基类的成员，但是通过基类指针所访问的成员仍是基类的成员，而不是子类的成员</p>
-<p>当指向子类的基类指针调用被覆盖了的成员时，假如基类中的被覆盖成员为虚函数，则调用子类中的成员，如果其不是虚函数，则调用基类中的成员。</p>
-]]></content>
-      <categories>
-        <category>语法</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>this指针</title>
-    <url>/Stouyx/2023/05/15/this%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<p>成员函数调用本身时用this指针</p>
-<img src="https://s1.imagehub.cc/images/2023/05/15/image10d895e6d4e49f3a.png" width="90%" height="40%">
-
-<p>当构造函数中的形参与数据成员重名时必须用this指针</p>
-<img src="https://s1.imagehub.cc/images/2023/05/15/image89ba83e49e0238b7.png" width="90%" height="40%">
+    <title>输入一行整数</title>
+    <url>/Stouyx/2023/05/22/%E8%BE%93%E5%85%A5%E4%B8%80%E8%A1%8C%E6%95%B4%E6%95%B0/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num;</span><br><span class="line">int m[10000];</span><br><span class="line">int i=0;</span><br><span class="line">while (cin &gt;&gt; num) &#123;</span><br><span class="line">     m[i]=num;</span><br><span class="line">     i++;</span><br><span class="line">     if (cin.get() == &#x27;\n&#x27;) &#123;</span><br><span class="line">         break;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体深入理解cin函数</p>
 ]]></content>
       <categories>
         <category>语法</category>
@@ -247,21 +275,6 @@
 <h2 id="静态数据成员"><a href="#静态数据成员" class="headerlink" title="静态数据成员"></a>静态数据成员</h2><p>对象的成员函数（没有static的成员函数）内部，可以直接访问“静态数据成员”<br>类的静态成员函数（有static的成员函数）内部，可以直接访问“静态数据成员”<br>即：所有的成员函数，都可以访问静态数据成员。<br>类不能直接访问普通的静态数据成员（Human::humanCount 非法）</p>
 <h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><p>对象可以直接访问静态成员函数<br>类可以直接访问静态成员函数（Human::getHumanCount()）<br>在类的静态成员函数（类的静态方法）内部，不能直接访问this指针和对象的数据成员！<br>在类的静态成员函数（类的静态方法）内部，只能访问类的数据成员</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//定义Student类</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">class Student                  </span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">//定义构造函数</span><br><span class="line">Student(int n,int a,float s):num(n),age(a),score(s)&#123; &#125;      </span><br><span class="line">void total();</span><br><span class="line">//声明静态成员函数</span><br><span class="line">static float average();      </span><br><span class="line">private:</span><br><span class="line">    int num;</span><br><span class="line">    int age;</span><br><span class="line">    float score;</span><br><span class="line">    //静态数据成员，累计学生的总分</span><br><span class="line">    static float sum; </span><br><span class="line">    //静态数据成员，累计学生的人数</span><br><span class="line">    static int count;           </span><br><span class="line">&#125;;</span><br><span class="line">//在全局作用域对静态数据成员初始化，如果不赋予初值，则使用其默认值零</span><br><span class="line">float Student::sum;                     </span><br><span class="line">int Student::count;</span><br><span class="line">//定义非静态成员函数</span><br><span class="line">void Student::total()                    </span><br><span class="line">&#123;</span><br><span class="line">    //累加总分</span><br><span class="line">    sum+=score;</span><br><span class="line">    //累计已统计的人数</span><br><span class="line">    count++;                               </span><br><span class="line">&#125;</span><br><span class="line">//定义静态成员函数</span><br><span class="line">float  Student::average()                  </span><br><span class="line">&#123;</span><br><span class="line">    return(sum/count);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Student stud[3]=&#123;    </span><br><span class="line">    //定义对象数组并初始化</span><br><span class="line">    Student(1001,18,70),</span><br><span class="line">    Student(1002,19,78),</span><br><span class="line">    Student(1005,20,98)</span><br><span class="line">&#125;;</span><br><span class="line">int n;</span><br><span class="line">std::cout&lt;&lt;&quot;please input the number of students: &quot;;</span><br><span class="line"> //输入需要求前面多少名学生的平均成绩</span><br><span class="line">std::cin&gt;&gt;n;                              </span><br><span class="line">//调用3次total函数</span><br><span class="line">for(int i=0;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    stud[i].total();</span><br><span class="line">&#125;</span><br><span class="line">//调用静态成员函数</span><br><span class="line">std::cout&lt;&lt;&quot;the average score of &quot;&lt;&lt;n&lt;&lt;&quot; students is &quot;&lt;&lt;Student::average( )&lt;&lt;std::endl;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>语法</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>隐藏重载覆盖</title>
-    <url>/Stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/</url>
-    <content><![CDATA[<p>存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。</p>
-<h2 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h2><p>子类对象优先考虑子类域自身成员（成员变量和成员函数）<br>    隐藏发生的主要原因，就是当子类有父类的同名成员时，子类对象访问该成员时，会发生冲突。所以编译器的处理方式是，优先考虑子类域中的自身成员。即，子类对象访问某成员时，如ch.m_m 或者ch.f(),成员变量和成员函数都一样。编译器首先在子类域中检索，如果在子类域中找到该成员，则检索结束，返回该成员进行访问。如果在子类域中找不到该成员，则去父类域中检索。如果父类域中存在，则返回该成员进行访问，如果父类域中也不存在，则编译错误，该成员无效。</p>
-<p>  当父子类域都存在同一成员时，编译器优先在子类中检索，就算父类域中也存在该同名成员，也不会被检索到。因此，父类域中的该成员被子类域中的该同名成员隐藏，即访问时完全以为该成员不存在，如果想访问父类域中的该成员，只能通过显示调用的方式，即：ch.Father::m_m;<br>重载：相同域的同名不同参函数</p>
-<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>　　<br>　　重载必须是发生在同一个域中的两个同名不同形参之间的。如果一个在父类域一个在子类域，是不会存在重载的，属于隐藏的情况。调用时，只会在子类域中搜索，如果形参不符合，会认为没有该函数，而不会去父类域中搜索。<br>覆盖是指派生类函数覆盖基类函数，特征是：<br>（1）不同的范围（分别位于派生类与基类）；<br>（2）函数名字相同；<br>（3）参数相同；<br>（4）基类函数必须有virtual 关键字。<br>令人迷惑的隐藏规则<br>本来仅仅区别重载与覆盖并不算困难，但是C++的隐藏规则使问题复杂性陡然增加。<br>这里“隐藏”是指派生类的函数屏蔽了与其同名的基类函数，规则如下：<br>（1）如果派生类的函数与基类的函数同名，但是参数不同。此时，不论有无virtual<br>关键字，基类的函数将被隐藏（注意别与重载混淆）。<br>（2）如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual<br>关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）。</p>
 ]]></content>
       <categories>
         <category>语法</category>

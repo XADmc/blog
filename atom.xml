@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2023-05-20T14:36:18.983Z</updated>
+  <updated>2023-05-22T07:27:50.909Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>输入一行整数</title>
+    <link href="https://xadmc.gitee.io/stouyx/2023/05/22/%E8%BE%93%E5%85%A5%E4%B8%80%E8%A1%8C%E6%95%B4%E6%95%B0/"/>
+    <id>https://xadmc.gitee.io/stouyx/2023/05/22/%E8%BE%93%E5%85%A5%E4%B8%80%E8%A1%8C%E6%95%B4%E6%95%B0/</id>
+    <published>2023-05-22T07:25:19.000Z</published>
+    <updated>2023-05-22T07:27:50.909Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int num;</span><br><span class="line">int m[10000];</span><br><span class="line">int i=0;</span><br><span class="line">while (cin &gt;&gt; num) &#123;</span><br><span class="line">     m[i]=num;</span><br><span class="line">     i++;</span><br><span class="line">     if (cin.get() == &#x27;\n&#x27;) &#123;</span><br><span class="line">         break;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>具体深入理解cin函数</p>]]></content>
+    
+    
+    <summary type="html">输入一行整数，如何自动生成int数组</summary>
+    
+    
+    
+    <category term="语法" scheme="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://xadmc.gitee.io/stouyx/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac软件无法打开</title>
