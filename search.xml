@@ -60,6 +60,112 @@
       </tags>
   </entry>
   <entry>
+    <title>快速排序</title>
+    <url>/Stouyx/2023/05/23/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a[n];</span><br><span class="line">int i,j,min,t;</span><br><span class="line">for(i=0;i&lt;n;i++)&#123;</span><br><span class="line">    min=i;</span><br><span class="line">    for(j=i+1;j&lt;n;j++)&#123;</span><br><span class="line">        if(a[j]&lt;a[min])&#123;</span><br><span class="line">            min=j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(min!=i)&#123;</span><br><span class="line">        t=a[min];</span><br><span class="line">        a[min]=a[i];</span><br><span class="line">        a[i]=t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    int a[n];</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    int i,j,t;</span><br><span class="line">    for(i=0;i&lt;n-1;i++)&#123;</span><br><span class="line">    //n个数要比较n-1次</span><br><span class="line">        for(j=0;j&lt;n-i-1;j++)&#123;</span><br><span class="line">        //控制排序次数，已经排序好的不再参与排序</span><br><span class="line">            if(a[j]&gt;a[j+1])&#123;</span><br><span class="line">                t=a[j];</span><br><span class="line">                a[j]=a[j+1];</span><br><span class="line">                a[j+1]=t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        cout&lt;&lt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>1．先从数列中取出一个数作为基准数。<br>2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。<br>3．再对左右区间重复第二步，直到各区间只有一个数。<br>虽然快速排序称为分治法，但分治法这三个字显然无法很好的概括快速排序的全部步骤。因此我的对快速排序作了进一步的说明：挖坑填数+分治法：<br>先来看实例吧，定义下面再给出（最好能用自己的话来总结定义，这样对实现代码会有帮助）。</p>
+<p>以一个数组作为示例，取区间第一个数为基准数。</p>
+<table>
+<thead>
+<tr>
+<th align="left">0</th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th>3</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><u>72</u></td>
+<td align="left">6</td>
+<td align="left">57</td>
+<td>88</td>
+<td align="left">60</td>
+<td align="left">42</td>
+<td align="left">83</td>
+<td align="left">73</td>
+<td align="left">48</td>
+<td align="left">85</td>
+</tr>
+</tbody></table>
+<p>初始时，i &#x3D; 0;  j &#x3D; 9;   X &#x3D; a[i] &#x3D; 72<br>由于已经将 a[0] 中的数保存到 X 中，可以理解成在数组 a[0] 上挖了个坑，可以将其它数据填充到这来。<br>从j开始向前找一个比X小或等于X的数。当j&#x3D;8，符合条件，将a[8]挖出再填到上一个坑a[0]中。a[0]&#x3D;a[8]; i++;  这样一个坑a[0]就被搞定了，但又形成了一个新坑a[8]，这怎么办了？简单，再找数字来填a[8]这个坑。这次从i开始向后找一个大于X的数，当i&#x3D;3，符合条件，将a[3]挖出再填到上一个坑中a[8]&#x3D;a[3]; j–;</p>
+<p>数组变为：</p>
+<table>
+<thead>
+<tr>
+<th align="left">0</th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th>3</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><u>48</u></td>
+<td align="left">6</td>
+<td align="left">57</td>
+<td><u>88</u></td>
+<td align="left">60</td>
+<td align="left">42</td>
+<td align="left">83</td>
+<td align="left">73</td>
+<td align="left"><u>88</u></td>
+<td align="left">85</td>
+</tr>
+</tbody></table>
+<p>i &#x3D; 3;   j &#x3D; 7;   X&#x3D;72<br>再重复上面的步骤，先从后向前找，再从前向后找。<br>从j开始向前找，当j&#x3D;5，符合条件，将a[5]挖出填到上一个坑中，a[3] &#x3D; a[5]; i++;<br>从i开始向后找，当i&#x3D;5时，由于i&#x3D;&#x3D;j退出。<br>此时，i &#x3D; j &#x3D; 5，而a[5]刚好又是上次挖的坑，因此将X填入a[5]。<br>数组变为：</p>
+<table>
+<thead>
+<tr>
+<th align="left">0</th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th>3</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><u>48</u></td>
+<td align="left">6</td>
+<td align="left">57</td>
+<td><u>42</u></td>
+<td align="left">60</td>
+<td align="left"><u>72</u></td>
+<td align="left">83</td>
+<td align="left">73</td>
+<td align="left"><u>88</u></td>
+<td align="left">85</td>
+</tr>
+</tbody></table>
+<p>可以看出a[5]前面的数字都小于它，a[5]后面的数字都大于它。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void quick_sort(int s[], int left, int right)</span><br><span class="line">&#123;</span><br><span class="line">    if (left &lt; right)</span><br><span class="line">    &#123;</span><br><span class="line">        int i = left, j = right, key = s[left];</span><br><span class="line">        while (i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            while(i &lt; j &amp;&amp; s[j] &gt;= x) // 从右向左找第一个小于x的数</span><br><span class="line">                j--;  </span><br><span class="line">            if(i &lt; j)&#123;</span><br><span class="line">                s[i] = s[j];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            while(i &lt; j &amp;&amp; s[i] &lt; x) // 从左向右找第一个大于等于x的数</span><br><span class="line">                i++;  </span><br><span class="line">            if(i &lt; j)&#123;</span><br><span class="line">                s[j] = s[i];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        s[i] = key;</span><br><span class="line">        quick_sort(s, left, i - 1); // 递归调用 </span><br><span class="line">        quick_sort(s, i + 1, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>指向基类的指针</title>
     <url>/Stouyx/2023/05/15/%E6%8C%87%E5%90%91%E5%9F%BA%E7%B1%BB%E7%9A%84%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<p>指向基类的指针可以指向子类<br>animal *p;(基类)<br>monkey c;(子类)<br>p&#x3D;&amp;c;</p>
@@ -114,6 +220,42 @@
 
 <h2 id="用在形参："><a href="#用在形参：" class="headerlink" title="用在形参："></a>用在形参：</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void change(int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">	b=1003;</span><br><span class="line">&#125;</span><br><span class="line">int a=1001;</span><br><span class="line">change(a);</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">//输出为1003；</span><br></pre></td></tr></table></figure>
 <h2 id="用于类"><a href="#用于类" class="headerlink" title="用于类"></a>用于类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class mm</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	string&amp; getname()</span><br><span class="line">	&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">protected:</span><br><span class="line">	string name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mm a;</span><br><span class="line">a.getname()=&quot;Tom&quot;</span><br><span class="line">//此时a中的name 为Tom</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>桶排序</title>
+    <url>/Stouyx/2023/05/23/%E6%A1%B6%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚函数</title>
+    <url>/Stouyx/2023/05/15/%E8%99%9A%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<p>C++中的虚函数是用于实现多态性的一种机制。虚函数可以在基类中声明并在派生类中重写，当通过基类指针或引用调用虚函数时，实际调用的是派生类中的实现，这种行为被称为动态绑定。</p>
+<h2 id="虚函数的作用"><a href="#虚函数的作用" class="headerlink" title="虚函数的作用"></a>虚函数的作用</h2><p>允许派生类重写基类中定义的函数。在基类中声明虚函数，如果派生类中有同名函数并且使用了关键字 virtual 进行了声明，那么这个函数就是虚函数，可以被派生类重写。<br>实现动态绑定。如果使用基类指针或引用调用虚函数，实际上调用的是指向对象的实际类型所实现的版本，而不是基类中的版本。这使得程序能够以一种更加灵活的方式使用对象，可以在运行时动态地确定调用哪个函数。<br>虚函数的应用广泛，特别是在面向对象程序设计中，常常被用来实现多态性和基于接口的编程，提高了程序的可扩展性和可维护性。<br>虚函数用于弥补覆盖的缺陷<br>对函数进行覆盖后，在基类中调用覆盖后的函数还是会调用基类中的函数，<br>但是当基类中的函数为虚函数，那么将调用子类中的覆盖后的函数</p>
+<h2 id="虚函数的定义"><a href="#虚函数的定义" class="headerlink" title="虚函数的定义"></a>虚函数的定义</h2><p>在实现c++多态时会用到虚函数。虚函数使用的其核心目的是通过基类访问派生类定义的函数。所谓虚函数就是在基类定义一个未实现的函数名，为了提高程序的可读性，建议后代中虚函数都加上virtual关键字。一般格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line"> base();</span><br><span class="line"> virtual void test(); //定义的一个虚函数</span><br><span class="line">private:</span><br><span class="line"> char *basePStr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上述代码在基类中定义了一个test的虚函数，所有可以在其子类重新定义父类的做法这种行为成为覆盖（override）,或者为重写。</p>
+<p>常见用法：声明基类指针，利用指针指向任意一个子类对象，调用相关的虚函数，动态绑定，由于编写代码时不能确定被调用的是基类函数还是那个派生类函数，所以被称为“”虚“”函数。如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</p>
+<h2 id="纯虚函数"><a href="#纯虚函数" class="headerlink" title="纯虚函数"></a>纯虚函数</h2><p>定义：</p>
+<p>纯虚函数是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都要定义自己的实现方法。在基类中实现纯虚函数的方法是在函数原型后加 &#x3D;0:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">virtual void funtion1()=0</span><br></pre></td></tr></table></figure>
+<p>在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理。</p>
+<p>为了解决上述问题，引入了纯虚函数的概念，将函数定义为纯虚函数（方法：virtual ReturnType Function()&#x3D; 0;），则编译器要求在派生类中必须予以重写以实现多态性。同时含有纯虚拟函数的类称为抽象类，它不能生成对象。这样就很好地解决了上述两个问题。</p>
+<p>声明了纯虚函数的类是一个抽象类。所以，用户不能创建类的实例，只能创建它的派生类的实例。</p>
+<p>纯虚函数最显著的特征是：它们必须在继承类中重新声明函数（不要后面的＝0，否则该派生类也不能实例化），而且它们在抽象类中往往没有定义。</p>
+<p>定义纯虚函数的目的在于，使派生类仅仅只是继承函数的接口。</p>
 ]]></content>
       <categories>
         <category>语法</category>
@@ -188,22 +330,30 @@
       </tags>
   </entry>
   <entry>
-    <title>虚函数</title>
-    <url>/Stouyx/2023/05/15/%E8%99%9A%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<p>C++中的虚函数是用于实现多态性的一种机制。虚函数可以在基类中声明并在派生类中重写，当通过基类指针或引用调用虚函数时，实际调用的是派生类中的实现，这种行为被称为动态绑定。</p>
-<h2 id="虚函数的作用"><a href="#虚函数的作用" class="headerlink" title="虚函数的作用"></a>虚函数的作用</h2><p>允许派生类重写基类中定义的函数。在基类中声明虚函数，如果派生类中有同名函数并且使用了关键字 virtual 进行了声明，那么这个函数就是虚函数，可以被派生类重写。<br>实现动态绑定。如果使用基类指针或引用调用虚函数，实际上调用的是指向对象的实际类型所实现的版本，而不是基类中的版本。这使得程序能够以一种更加灵活的方式使用对象，可以在运行时动态地确定调用哪个函数。<br>虚函数的应用广泛，特别是在面向对象程序设计中，常常被用来实现多态性和基于接口的编程，提高了程序的可扩展性和可维护性。<br>虚函数用于弥补覆盖的缺陷<br>对函数进行覆盖后，在基类中调用覆盖后的函数还是会调用基类中的函数，<br>但是当基类中的函数为虚函数，那么将调用子类中的覆盖后的函数</p>
-<h2 id="虚函数的定义"><a href="#虚函数的定义" class="headerlink" title="虚函数的定义"></a>虚函数的定义</h2><p>在实现c++多态时会用到虚函数。虚函数使用的其核心目的是通过基类访问派生类定义的函数。所谓虚函数就是在基类定义一个未实现的函数名，为了提高程序的可读性，建议后代中虚函数都加上virtual关键字。一般格式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line"> base();</span><br><span class="line"> virtual void test(); //定义的一个虚函数</span><br><span class="line">private:</span><br><span class="line"> char *basePStr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>上述代码在基类中定义了一个test的虚函数，所有可以在其子类重新定义父类的做法这种行为成为覆盖（override）,或者为重写。</p>
-<p>常见用法：声明基类指针，利用指针指向任意一个子类对象，调用相关的虚函数，动态绑定，由于编写代码时不能确定被调用的是基类函数还是那个派生类函数，所以被称为“”虚“”函数。如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</p>
-<h2 id="纯虚函数"><a href="#纯虚函数" class="headerlink" title="纯虚函数"></a>纯虚函数</h2><p>定义：</p>
-<p>纯虚函数是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都要定义自己的实现方法。在基类中实现纯虚函数的方法是在函数原型后加 &#x3D;0:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">virtual void funtion1()=0</span><br></pre></td></tr></table></figure>
-<p>在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理。</p>
-<p>为了解决上述问题，引入了纯虚函数的概念，将函数定义为纯虚函数（方法：virtual ReturnType Function()&#x3D; 0;），则编译器要求在派生类中必须予以重写以实现多态性。同时含有纯虚拟函数的类称为抽象类，它不能生成对象。这样就很好地解决了上述两个问题。</p>
-<p>声明了纯虚函数的类是一个抽象类。所以，用户不能创建类的实例，只能创建它的派生类的实例。</p>
-<p>纯虚函数最显著的特征是：它们必须在继承类中重新声明函数（不要后面的＝0，否则该派生类也不能实例化），而且它们在抽象类中往往没有定义。</p>
-<p>定义纯虚函数的目的在于，使派生类仅仅只是继承函数的接口。</p>
+    <title>输入一行整数</title>
+    <url>/Stouyx/2023/05/22/%E8%BE%93%E5%85%A5%E4%B8%80%E8%A1%8C%E6%95%B4%E6%95%B0/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num;</span><br><span class="line">int m[10000];</span><br><span class="line">int i=0;</span><br><span class="line">while (cin &gt;&gt; num) &#123;</span><br><span class="line">     m[i]=num;</span><br><span class="line">     i++;</span><br><span class="line">     if (cin.get() == &#x27;\n&#x27;) &#123;</span><br><span class="line">         break;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体深入理解cin函数</p>
+]]></content>
+      <categories>
+        <category>语法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>静态成员函数</title>
+    <url>/Stouyx/2023/05/08/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/</url>
+    <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>静态成员函数的声明也很简单，就是在类的成员函数前加上static关键字即可，和静态成员一样，静态成员函数也是属于类的，它并不属于任何对象，当调用静态成员函数时应该使用类名和域运算符“∷”，当然也可以使用对象调用操作，但是这样的操作并不意味着静态成员函数属于这个对象，它只是被这个对象共享而已，这样也就决定了静态成员函数中是不能访问本类中的非静态数据成员的，它是不能访问非静态数据成员的，在c++中静态成员函数主要用来访问静态数据成员而不访问非静态数据成员</p>
+<p>ps：<br>static int count()<br>name.count()<br>不表示count()属于name</p>
+<p>1.静态成员函数不能调用非静态成员函数，但是反过来是可以的</p>
+<p>2.静态成员函数没有this指针，也就是说静态成员函数不能使用修饰符(也就是函数后面的const关键字)</p>
+<p>3.静态成员函数的地址可用普通函数指针储存，而普通成员函数地址需要用 类成员函数指针来储存。</p>
+<p>总结：其实声明为静态，不论是静态数据成员还是静态成员函数，它们都是不依赖于对象而存在的，类在定义后并不分配存储空间，而是在定义类的对象的时候才分配存储空间，相反静态的数据成员和静态的成员函数是已经在内存中开辟了内存空间了，所以静态数据成员可以独立的访问在任何类对象没有建立起来都可以访问，并且静态成员函数不可以调用非静态成员函数，因为非静态成员函数只有在类对象建立以后才可以调用，相反则是可以的。<br><img src="https://www.helloimg.com/images/2023/05/09/oxnXZC.png" width="100%" height="100%"></p>
+<h2 id="静态数据成员"><a href="#静态数据成员" class="headerlink" title="静态数据成员"></a>静态数据成员</h2><p>对象的成员函数（没有static的成员函数）内部，可以直接访问“静态数据成员”<br>类的静态成员函数（有static的成员函数）内部，可以直接访问“静态数据成员”<br>即：所有的成员函数，都可以访问静态数据成员。<br>类不能直接访问普通的静态数据成员（Human::humanCount 非法）</p>
+<h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><p>对象可以直接访问静态成员函数<br>类可以直接访问静态成员函数（Human::getHumanCount()）<br>在类的静态成员函数（类的静态方法）内部，不能直接访问this指针和对象的数据成员！<br>在类的静态成员函数（类的静态方法）内部，只能访问类的数据成员</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//定义Student类</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">class Student                  </span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">//定义构造函数</span><br><span class="line">Student(int n,int a,float s):num(n),age(a),score(s)&#123; &#125;      </span><br><span class="line">void total();</span><br><span class="line">//声明静态成员函数</span><br><span class="line">static float average();      </span><br><span class="line">private:</span><br><span class="line">    int num;</span><br><span class="line">    int age;</span><br><span class="line">    float score;</span><br><span class="line">    //静态数据成员，累计学生的总分</span><br><span class="line">    static float sum; </span><br><span class="line">    //静态数据成员，累计学生的人数</span><br><span class="line">    static int count;           </span><br><span class="line">&#125;;</span><br><span class="line">//在全局作用域对静态数据成员初始化，如果不赋予初值，则使用其默认值零</span><br><span class="line">float Student::sum;                     </span><br><span class="line">int Student::count;</span><br><span class="line">//定义非静态成员函数</span><br><span class="line">void Student::total()                    </span><br><span class="line">&#123;</span><br><span class="line">    //累加总分</span><br><span class="line">    sum+=score;</span><br><span class="line">    //累计已统计的人数</span><br><span class="line">    count++;                               </span><br><span class="line">&#125;</span><br><span class="line">//定义静态成员函数</span><br><span class="line">float  Student::average()                  </span><br><span class="line">&#123;</span><br><span class="line">    return(sum/count);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Student stud[3]=&#123;    </span><br><span class="line">    //定义对象数组并初始化</span><br><span class="line">    Student(1001,18,70),</span><br><span class="line">    Student(1002,19,78),</span><br><span class="line">    Student(1005,20,98)</span><br><span class="line">&#125;;</span><br><span class="line">int n;</span><br><span class="line">std::cout&lt;&lt;&quot;please input the number of students: &quot;;</span><br><span class="line"> //输入需要求前面多少名学生的平均成绩</span><br><span class="line">std::cin&gt;&gt;n;                              </span><br><span class="line">//调用3次total函数</span><br><span class="line">for(int i=0;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    stud[i].total();</span><br><span class="line">&#125;</span><br><span class="line">//调用静态成员函数</span><br><span class="line">std::cout&lt;&lt;&quot;the average score of &quot;&lt;&lt;n&lt;&lt;&quot; students is &quot;&lt;&lt;Student::average( )&lt;&lt;std::endl;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>语法</category>
@@ -251,36 +401,14 @@
       </tags>
   </entry>
   <entry>
-    <title>输入一行整数</title>
-    <url>/Stouyx/2023/05/22/%E8%BE%93%E5%85%A5%E4%B8%80%E8%A1%8C%E6%95%B4%E6%95%B0/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num;</span><br><span class="line">int m[10000];</span><br><span class="line">int i=0;</span><br><span class="line">while (cin &gt;&gt; num) &#123;</span><br><span class="line">     m[i]=num;</span><br><span class="line">     i++;</span><br><span class="line">     if (cin.get() == &#x27;\n&#x27;) &#123;</span><br><span class="line">         break;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体深入理解cin函数</p>
-]]></content>
+    <title>高精度加法</title>
+    <url>/Stouyx/2023/05/23/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
       <categories>
-        <category>语法</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>静态成员函数</title>
-    <url>/Stouyx/2023/05/08/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/</url>
-    <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>静态成员函数的声明也很简单，就是在类的成员函数前加上static关键字即可，和静态成员一样，静态成员函数也是属于类的，它并不属于任何对象，当调用静态成员函数时应该使用类名和域运算符“∷”，当然也可以使用对象调用操作，但是这样的操作并不意味着静态成员函数属于这个对象，它只是被这个对象共享而已，这样也就决定了静态成员函数中是不能访问本类中的非静态数据成员的，它是不能访问非静态数据成员的，在c++中静态成员函数主要用来访问静态数据成员而不访问非静态数据成员</p>
-<p>ps：<br>static int count()<br>name.count()<br>不表示count()属于name</p>
-<p>1.静态成员函数不能调用非静态成员函数，但是反过来是可以的</p>
-<p>2.静态成员函数没有this指针，也就是说静态成员函数不能使用修饰符(也就是函数后面的const关键字)</p>
-<p>3.静态成员函数的地址可用普通函数指针储存，而普通成员函数地址需要用 类成员函数指针来储存。</p>
-<p>总结：其实声明为静态，不论是静态数据成员还是静态成员函数，它们都是不依赖于对象而存在的，类在定义后并不分配存储空间，而是在定义类的对象的时候才分配存储空间，相反静态的数据成员和静态的成员函数是已经在内存中开辟了内存空间了，所以静态数据成员可以独立的访问在任何类对象没有建立起来都可以访问，并且静态成员函数不可以调用非静态成员函数，因为非静态成员函数只有在类对象建立以后才可以调用，相反则是可以的。<br><img src="https://www.helloimg.com/images/2023/05/09/oxnXZC.png" width="100%" height="100%"></p>
-<h2 id="静态数据成员"><a href="#静态数据成员" class="headerlink" title="静态数据成员"></a>静态数据成员</h2><p>对象的成员函数（没有static的成员函数）内部，可以直接访问“静态数据成员”<br>类的静态成员函数（有static的成员函数）内部，可以直接访问“静态数据成员”<br>即：所有的成员函数，都可以访问静态数据成员。<br>类不能直接访问普通的静态数据成员（Human::humanCount 非法）</p>
-<h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><p>对象可以直接访问静态成员函数<br>类可以直接访问静态成员函数（Human::getHumanCount()）<br>在类的静态成员函数（类的静态方法）内部，不能直接访问this指针和对象的数据成员！<br>在类的静态成员函数（类的静态方法）内部，只能访问类的数据成员</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//定义Student类</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">class Student                  </span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">//定义构造函数</span><br><span class="line">Student(int n,int a,float s):num(n),age(a),score(s)&#123; &#125;      </span><br><span class="line">void total();</span><br><span class="line">//声明静态成员函数</span><br><span class="line">static float average();      </span><br><span class="line">private:</span><br><span class="line">    int num;</span><br><span class="line">    int age;</span><br><span class="line">    float score;</span><br><span class="line">    //静态数据成员，累计学生的总分</span><br><span class="line">    static float sum; </span><br><span class="line">    //静态数据成员，累计学生的人数</span><br><span class="line">    static int count;           </span><br><span class="line">&#125;;</span><br><span class="line">//在全局作用域对静态数据成员初始化，如果不赋予初值，则使用其默认值零</span><br><span class="line">float Student::sum;                     </span><br><span class="line">int Student::count;</span><br><span class="line">//定义非静态成员函数</span><br><span class="line">void Student::total()                    </span><br><span class="line">&#123;</span><br><span class="line">    //累加总分</span><br><span class="line">    sum+=score;</span><br><span class="line">    //累计已统计的人数</span><br><span class="line">    count++;                               </span><br><span class="line">&#125;</span><br><span class="line">//定义静态成员函数</span><br><span class="line">float  Student::average()                  </span><br><span class="line">&#123;</span><br><span class="line">    return(sum/count);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Student stud[3]=&#123;    </span><br><span class="line">    //定义对象数组并初始化</span><br><span class="line">    Student(1001,18,70),</span><br><span class="line">    Student(1002,19,78),</span><br><span class="line">    Student(1005,20,98)</span><br><span class="line">&#125;;</span><br><span class="line">int n;</span><br><span class="line">std::cout&lt;&lt;&quot;please input the number of students: &quot;;</span><br><span class="line"> //输入需要求前面多少名学生的平均成绩</span><br><span class="line">std::cin&gt;&gt;n;                              </span><br><span class="line">//调用3次total函数</span><br><span class="line">for(int i=0;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    stud[i].total();</span><br><span class="line">&#125;</span><br><span class="line">//调用静态成员函数</span><br><span class="line">std::cout&lt;&lt;&quot;the average score of &quot;&lt;&lt;n&lt;&lt;&quot; students is &quot;&lt;&lt;Student::average( )&lt;&lt;std::endl;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>语法</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
+        <tag>高精度计算</tag>
       </tags>
   </entry>
 </search>
