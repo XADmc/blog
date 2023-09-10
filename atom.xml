@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2023-05-23T10:54:30.393Z</updated>
+  <updated>2023-09-10T05:09:53.190Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -17,21 +17,23 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>高精度加法</title>
+    <title>一张照片</title>
     <link href="https://xadmc.gitee.io/stouyx/2023/05/23/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/"/>
     <id>https://xadmc.gitee.io/stouyx/2023/05/23/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/</id>
     <published>2023-05-23T10:53:36.000Z</published>
-    <updated>2023-05-23T10:54:30.393Z</updated>
+    <updated>2023-09-10T05:09:53.190Z</updated>
+    
+    <content type="html"><![CDATA[<img src="https://s1.imagehub.cc/images/2023/09/10/2471694322331_.pic.jpeg" width="80%" height="60%">]]></content>
     
     
-    <summary type="html">高精度计算：加法</summary>
+    <summary type="html">picture</summary>
     
     
     
-    <category term="算法" scheme="https://xadmc.gitee.io/stouyx/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="日常" scheme="https://xadmc.gitee.io/stouyx/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="高精度计算" scheme="https://xadmc.gitee.io/stouyx/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/"/>
+    <category term="日常" scheme="https://xadmc.gitee.io/stouyx/tags/%E6%97%A5%E5%B8%B8/"/>
     
   </entry>
   
