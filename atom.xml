@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2023-11-28T10:14:13.264Z</updated>
+  <updated>2023-11-28T15:36:13.490Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>new的用法</title>
+    <title>new的理解</title>
     <link href="https://xadmc.gitee.io/stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/"/>
     <id>https://xadmc.gitee.io/stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/</id>
     <published>2023-11-28T10:11:36.000Z</published>
-    <updated>2023-11-28T10:14:13.264Z</updated>
+    <updated>2023-11-28T15:36:13.490Z</updated>
     
-    <content type="html"><![CDATA[<p>#new</p><p>如果已经有一个 HuffmanNode 对象，可以创建指向它的指针，无需使用 new：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HuffmanNode node(10);  // 创建一个 HuffmanNode 对象</span><br><span class="line">HuffmanNode* pointer = &amp;node;  // 创建指向该对象的指针</span><br></pre></td></tr></table></figure><p>这里 pointer 是一个指向 node 对象的指针，而不是使用 new 分配内存创建的指针</p><p>如果要创建一个新的对象并且获得指向它的指针，通常情况下可以使用 new 操作符来动态分配内存并创建对象。比如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HuffmanNode* newNode = new HuffmanNode(20); </span><br></pre></td></tr></table></figure><p>这行代码会在堆内存中分配空间以存储一个 HuffmanNode 对象，并将其初始化为权值为 20，然后返回指向这个对象的指针 newNode<br>但是，在使用 new 创建对象后，务必记得在不需要这个对象时使用 delete 删除释放它所占用的内存，以免造成内存泄漏</p>]]></content>
+    <content type="html"><![CDATA[<p>#new<br>##1.new可以直接返回一个指针</p><p>如果已经有一个 HuffmanNode 对象，可以创建指向它的指针，无需使用 new：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HuffmanNode node(10);  // 创建一个 HuffmanNode 对象</span><br><span class="line">HuffmanNode* pointer = &amp;node;  // 创建指向该对象的指针</span><br></pre></td></tr></table></figure><p>这里 pointer 是一个指向 node 对象的指针，而不是使用 new 分配内存创建的指针</p><p>如果要创建一个新的对象并且获得指向它的指针，通常情况下可以使用 new 操作符来动态分配内存并创建对象。比如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HuffmanNode* newNode = new HuffmanNode(20); </span><br></pre></td></tr></table></figure><p>这行代码会在堆内存中分配空间以存储一个 HuffmanNode 对象，并将其初始化为权值为 20，然后返回指向这个对象的指针 newNode<br>但是，在使用 new 创建对象后，务必记得在不需要这个对象时使用 delete 删除释放它所占用的内存，以免造成内存泄漏</p><p>##2.函数中new出来的变量可以跨函数使用<br>在函数中直接使用变量名声明的变量通常是局部变量，它们的作用域限定在该函数内部。一旦函数执行结束，这些局部变量所占用的内存空间会被释放掉，它们的生命周期也随之结束。</p><p>例如，在函数中这样声明变量：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void myFunction() &#123;</span><br><span class="line">    int x = 10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>当myFunction()执行完毕后，变量x将会被销毁，因为它是在函数内部声明的局部变量。这种变量的生命周期通常是在其所在的代码块结束时结束。</p><p>对于动态分配的内存，比如使用new来分配内存，所分配的内存空间并不会在函数结束时自动释放，而是需要显式地使用delete来释放。使用 new 运算符在堆（heap）上动态分配的内存空间可以跨函数使用。堆上分配的内存空间不受局部作用域的限制。这种情况下，即使函数结束，分配的内存仍然存在，除非显式释放。</p><p>因此，直接在函数中声明的变量，一般在函数结束时会被销毁。而使用动态分配内存的变量（通过new操作符），则需要手动释放分配的内存空间，否则可能会导致内存泄漏。</p>]]></content>
     
     
     <summary type="html">new的理解</summary>
