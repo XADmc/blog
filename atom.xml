@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2023-09-10T05:09:53.190Z</updated>
+  <updated>2023-11-28T10:14:13.264Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -17,23 +17,23 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>一张照片</title>
-    <link href="https://xadmc.gitee.io/stouyx/2023/05/23/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/"/>
-    <id>https://xadmc.gitee.io/stouyx/2023/05/23/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/</id>
-    <published>2023-05-23T10:53:36.000Z</published>
-    <updated>2023-09-10T05:09:53.190Z</updated>
+    <title>new的用法</title>
+    <link href="https://xadmc.gitee.io/stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/"/>
+    <id>https://xadmc.gitee.io/stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/</id>
+    <published>2023-11-28T10:11:36.000Z</published>
+    <updated>2023-11-28T10:14:13.264Z</updated>
     
-    <content type="html"><![CDATA[<img src="https://s1.imagehub.cc/images/2023/09/10/2471694322331_.pic.jpeg" width="80%" height="60%">]]></content>
-    
-    
-    <summary type="html">picture</summary>
+    <content type="html"><![CDATA[<p>#new</p><p>如果已经有一个 HuffmanNode 对象，可以创建指向它的指针，无需使用 new：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HuffmanNode node(10);  // 创建一个 HuffmanNode 对象</span><br><span class="line">HuffmanNode* pointer = &amp;node;  // 创建指向该对象的指针</span><br></pre></td></tr></table></figure><p>这里 pointer 是一个指向 node 对象的指针，而不是使用 new 分配内存创建的指针</p><p>如果要创建一个新的对象并且获得指向它的指针，通常情况下可以使用 new 操作符来动态分配内存并创建对象。比如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HuffmanNode* newNode = new HuffmanNode(20); </span><br></pre></td></tr></table></figure><p>这行代码会在堆内存中分配空间以存储一个 HuffmanNode 对象，并将其初始化为权值为 20，然后返回指向这个对象的指针 newNode<br>但是，在使用 new 创建对象后，务必记得在不需要这个对象时使用 delete 删除释放它所占用的内存，以免造成内存泄漏</p>]]></content>
     
     
+    <summary type="html">new的理解</summary>
     
-    <category term="日常" scheme="https://xadmc.gitee.io/stouyx/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="日常" scheme="https://xadmc.gitee.io/stouyx/tags/%E6%97%A5%E5%B8%B8/"/>
+    <category term="语法" scheme="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://xadmc.gitee.io/stouyx/tags/C/"/>
     
   </entry>
   
