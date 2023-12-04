@@ -19,28 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xadmc.gitee.io","root":"/Stouyx/","images":"/Stouyx/images","scheme":"Pisces","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/Stouyx/js/config.js"></script>
 
-    <meta name="description" content="new的理解">
+    <meta name="description" content="Dijkstra算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="new的理解">
-<meta property="og:url" content="https://xadmc.gitee.io/stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:title" content="图的最短路径">
+<meta property="og:url" content="https://xadmc.gitee.io/stouyx/2023/12/04/%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/index.html">
 <meta property="og:site_name" content="Stouyx&#39;s blog">
-<meta property="og:description" content="new的理解">
+<meta property="og:description" content="Dijkstra算法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-28T10:11:36.000Z">
-<meta property="article:modified_time" content="2023-11-28T15:40:51.606Z">
+<meta property="og:image" content="https://vip.helloimg.com/images/2023/12/04/oQdUpK.jpg">
+<meta property="article:published_time" content="2023-12-04T10:20:36.000Z">
+<meta property="article:modified_time" content="2023-12-04T10:26:02.164Z">
 <meta property="article:author" content="Wang Yuxuan">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vip.helloimg.com/images/2023/12/04/oQdUpK.jpg">
 
 
-<link rel="canonical" href="https://xadmc.gitee.io/stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/">
+<link rel="canonical" href="https://xadmc.gitee.io/stouyx/2023/12/04/%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":"","permalink":"https://xadmc.gitee.io/stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/","path":"2023/11/28/new的用法/","title":"new的理解"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":"","permalink":"https://xadmc.gitee.io/stouyx/2023/12/04/%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/","path":"2023/12/04/图的最短路径/","title":"图的最短路径"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>new的理解 | Stouyx's blog</title>
+<title>图的最短路径 | Stouyx's blog</title>
   
 
 
@@ -101,7 +103,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -114,7 +116,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#new"><span class="nav-number">1.</span> <span class="nav-text">new</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-new%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E6%8C%87%E9%92%88"><span class="nav-number">1.1.</span> <span class="nav-text">1.new可以直接返回一个指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%87%BD%E6%95%B0%E4%B8%ADnew%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%98%E9%87%8F%E5%8F%AF%E4%BB%A5%E8%B7%A8%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">2.函数中new出来的变量可以跨函数使用</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xadmc.gitee.io/stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://xadmc.gitee.io/stouyx/2023/12/04/%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Stouyx/images/avatar.jpg">
@@ -191,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="new的理解 | Stouyx's blog">
-      <meta itemprop="description" content="new的理解">
+      <meta itemprop="name" content="图的最短路径 | Stouyx's blog">
+      <meta itemprop="description" content="Dijkstra算法">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          new的理解
+          图的最短路径
         </h1>
 
         <div class="post-meta-container">
@@ -208,7 +209,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-11-28 18:11:36 / 修改时间：23:40:51" itemprop="dateCreated datePublished" datetime="2023-11-28T18:11:36+08:00">2023-11-28</time>
+      <time title="创建时间：2023-12-04 18:20:36 / 修改时间：18:26:02" itemprop="dateCreated datePublished" datetime="2023-12-04T18:20:36+08:00">2023-12-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -216,7 +217,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Stouyx/categories/%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
+          <a href="/Stouyx/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
         </span>
     </span>
 
@@ -232,29 +233,16 @@
   
 </div>
 
-            <div class="post-description">new的理解</div>
+            <div class="post-description">Dijkstra算法</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="new"><a href="#new" class="headerlink" title="new"></a>new</h1><h2 id="1-new可以直接返回一个指针"><a href="#1-new可以直接返回一个指针" class="headerlink" title="1.new可以直接返回一个指针"></a>1.new可以直接返回一个指针</h2><p>如果已经有一个 HuffmanNode 对象，可以创建指向它的指针，无需使用 new：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HuffmanNode node(10);  // 创建一个 HuffmanNode 对象</span><br><span class="line">HuffmanNode* pointer = &amp;node;  // 创建指向该对象的指针</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><img src="https://vip.helloimg.com/images/2023/12/04/oQdUpK.jpg" width="900%" height="100%">
 
-<p>这里 pointer 是一个指向 node 对象的指针，而不是使用 new 分配内存创建的指针</p>
-<p>如果要创建一个新的对象并且获得指向它的指针，通常情况下可以使用 new 操作符来动态分配内存并创建对象。比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HuffmanNode* newNode = new HuffmanNode(20); </span><br></pre></td></tr></table></figure>
-
-<p>这行代码会在堆内存中分配空间以存储一个 HuffmanNode 对象，并将其初始化为权值为 20，然后返回指向这个对象的指针 newNode<br>但是，在使用 new 创建对象后，务必记得在不需要这个对象时使用 delete 删除释放它所占用的内存，以免造成内存泄漏</p>
-<h2 id="2-函数中new出来的变量可以跨函数使用"><a href="#2-函数中new出来的变量可以跨函数使用" class="headerlink" title="2.函数中new出来的变量可以跨函数使用"></a>2.函数中new出来的变量可以跨函数使用</h2><p>在函数中直接使用变量名声明的变量通常是局部变量，它们的作用域限定在该函数内部。一旦函数执行结束，这些局部变量所占用的内存空间会被释放掉，它们的生命周期也随之结束。</p>
-<p>例如，在函数中这样声明变量：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void myFunction() &#123;</span><br><span class="line">    int x = 10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当myFunction()执行完毕后，变量x将会被销毁，因为它是在函数内部声明的局部变量。这种变量的生命周期通常是在其所在的代码块结束时结束。</p>
-<p>对于动态分配的内存，比如使用new来分配内存，所分配的内存空间并不会在函数结束时自动释放，而是需要显式地使用delete来释放。使用 new 运算符在堆（heap）上动态分配的内存空间可以跨函数使用。堆上分配的内存空间不受局部作用域的限制。这种情况下，即使函数结束，分配的内存仍然存在，除非显式释放。</p>
-<p>因此，直接在函数中声明的变量，一般在函数结束时会被销毁。而使用动态分配内存的变量（通过new操作符），则需要手动释放分配的内存空间，否则可能会导致内存泄漏。</p>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;limits&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void Dijkstra(int graph[][9], int weight[][9], int start, int end) &#123;</span><br><span class="line">    int dis[9];</span><br><span class="line">    int pre[9];</span><br><span class="line">    bool flag[9];</span><br><span class="line"></span><br><span class="line">    // 初始化数组</span><br><span class="line">    for (int i = 0; i &lt; 9; i++) &#123;</span><br><span class="line">        dis[i] = INT_MAX;</span><br><span class="line">        pre[i] = -1;</span><br><span class="line">        flag[i] = false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dis[start] = 0;</span><br><span class="line">    flag[start] = true;</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; 9; i++) &#123;</span><br><span class="line">        if (graph[start][i] == 1) &#123;</span><br><span class="line">            dis[i] = weight[start][i];</span><br><span class="line">            pre[i] = start;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; 9; i++) &#123;</span><br><span class="line">        int min = INT_MAX;</span><br><span class="line">        int min_rode = -1;</span><br><span class="line"></span><br><span class="line">        // 在没有最短路径标记的点中找到距离最小的节点</span><br><span class="line">        for (int j = 0; j &lt; 9; j++) &#123;</span><br><span class="line">            if (!flag[j] &amp;&amp; dis[j] &lt; min) &#123;</span><br><span class="line">                min = dis[j];</span><br><span class="line">                min_rode = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //找到路径最小点之后 遍历最小点的邻接点</span><br><span class="line">        if (min_rode != -1) &#123;</span><br><span class="line">            flag[min_rode] = true;</span><br><span class="line">            for (int k = 0; k &lt; 9; k++) &#123;</span><br><span class="line">                if (!flag[k] &amp;&amp; graph[min_rode][k] == 1 &amp;&amp; dis[min_rode] + weight[min_rode][k] &lt; dis[k]) &#123;</span><br><span class="line">                    dis[k] = dis[min_rode] + weight[min_rode][k];</span><br><span class="line">                    pre[k] = min_rode;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 输出最短路径</span><br><span class="line">    cout &lt;&lt; &quot;从节点 &quot; &lt;&lt; start &lt;&lt; &quot; 到节点 &quot; &lt;&lt; end &lt;&lt; &quot; 的最短路径为：&quot; &lt;&lt; dis[end] &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int graph[9][9] = &#123;</span><br><span class="line">        &#123;0, 1, 0, 0, 0, 0, 0, 1, 0&#125;,</span><br><span class="line">        &#123;1, 0, 1, 0, 0, 0, 0, 1, 0&#125;,</span><br><span class="line">        &#123;0, 1, 0, 1, 0, 1, 0, 0, 1&#125;,</span><br><span class="line">        &#123;0, 0, 1, 0, 1, 1, 0, 0, 0&#125;,</span><br><span class="line">        &#123;0, 0, 0, 1, 0, 1, 0, 0, 0&#125;,</span><br><span class="line">        &#123;0, 0, 1, 1, 1, 0, 1, 0, 0&#125;,</span><br><span class="line">        &#123;0, 0, 0, 0, 0, 1, 0, 1, 1&#125;,</span><br><span class="line">        &#123;1, 1, 0, 0, 0, 0, 1, 0, 1&#125;,</span><br><span class="line">        &#123;0, 0, 1, 0, 0, 0, 1, 1, 0&#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    int weight[9][9] = &#123;</span><br><span class="line">        &#123;0, 4, 0, 0, 0, 0, 0, 8, 0&#125;,</span><br><span class="line">        &#123;4, 0, 8, 0, 0, 0, 0, 11, 0&#125;,</span><br><span class="line">        &#123;0, 8, 0, 7, 0, 4, 0, 0, 2&#125;,</span><br><span class="line">        &#123;0, 0, 7, 0, 9, 14, 0, 0, 0&#125;,</span><br><span class="line">        &#123;0, 0, 0, 9, 0, 10, 0, 0, 0&#125;,</span><br><span class="line">        &#123;0, 0, 4, 14, 10, 0, 2, 0, 0&#125;,</span><br><span class="line">        &#123;0, 0, 0, 0, 0, 2, 0, 1, 6&#125;,</span><br><span class="line">        &#123;8, 11, 0, 0, 0, 0, 1, 0, 7&#125;,</span><br><span class="line">        &#123;0, 0, 2, 0, 0, 0, 6, 7, 0&#125;,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    int start = 0;</span><br><span class="line">    int end = 4;</span><br><span class="line"></span><br><span class="line">    Dijkstra(graph, weight, start, end);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -289,14 +277,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Stouyx/2023/05/23/%E6%A1%B6%E6%8E%92%E5%BA%8F/" rel="prev" title="桶排序">
-                  <i class="fa fa-chevron-left"></i> 桶排序
+                <a href="/Stouyx/2023/11/28/new%E7%9A%84%E7%94%A8%E6%B3%95/" rel="prev" title="new的理解">
+                  <i class="fa fa-chevron-left"></i> new的理解
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Stouyx/2023/12/04/%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" rel="next" title="图的最短路径">
-                  图的最短路径 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
