@@ -506,4 +506,27 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>移除元素</title>
+    <url>/Stouyx/2024/01/24/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><p>题目链接：<a href="https://leetcode.cn/problems/remove-element/">https://leetcode.cn/problems/remove-element/</a> </p>
+<p>文章讲解：<a href="https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html">https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html</a></p>
+<p>视频讲解：<a href="https://www.bilibili.com/video/BV12A4y1Z7LP">https://www.bilibili.com/video/BV12A4y1Z7LP</a></p>
+<p>状态：第一次看题想要用两层循环去解决</p>
+<h2 id="暴力解法"><a href="#暴力解法" class="headerlink" title="暴力解法"></a>暴力解法</h2><p>时间复杂度O(n^2);</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123;</span><br><span class="line">        int size = nums.size();</span><br><span class="line">        for (int i = 0; i&lt;size; i++) &#123;</span><br><span class="line">            if(nums[i] == val)&#123;</span><br><span class="line">                for (int j = i+1; j&lt;size; j++) &#123;</span><br><span class="line">                //j=i的话 有nums[j] 保证其不越界 j要小于size</span><br><span class="line">                    nums[j-1] = nums[j];</span><br><span class="line">                &#125;</span><br><span class="line">                size--;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return size;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123;</span><br><span class="line">        int size = nums.size();</span><br><span class="line">        for (int i = 0; i&lt;size; i++) &#123;</span><br><span class="line">            if(nums[i] == val)&#123;</span><br><span class="line">                for (int j = i; j&lt;size-1; j++) &#123;</span><br><span class="line">                //j=i的话 有nums[j+1] 保证其不越界 j要小于size-1</span><br><span class="line">                    nums[j] = nums[j+1];</span><br><span class="line">                &#125;</span><br><span class="line">                size--;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return size;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><p>时间复杂度O(n);</p>
+<p>快指针用于获取新的数据，然后检查新的数据是否满足要求<br>满足要求的话就赋值给慢指针，然后慢指针后移一位</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123;</span><br><span class="line">        int fast = 0;</span><br><span class="line">        int slow = 0;</span><br><span class="line">        for (int fast = 0; fast&lt;nums.size(); fast++) &#123;</span><br><span class="line">            if(nums[fast] != val)&#123;</span><br><span class="line">                nums[slow] = nums[fast];</span><br><span class="line">                slow++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
