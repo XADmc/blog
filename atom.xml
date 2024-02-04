@@ -6,7 +6,7 @@
   <link href="https://xadmc.gitee.io/stouyx/atom.xml" rel="self"/>
   
   <link href="https://xadmc.gitee.io/stouyx/"/>
-  <updated>2024-02-01T13:04:16.860Z</updated>
+  <updated>2024-02-04T03:03:11.921Z</updated>
   <id>https://xadmc.gitee.io/stouyx/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>day3</title>
+    <link href="https://xadmc.gitee.io/stouyx/2024/02/03/day4/"/>
+    <id>https://xadmc.gitee.io/stouyx/2024/02/03/day4/</id>
+    <published>2024-02-03T05:31:29.000Z</published>
+    <updated>2024-02-04T03:03:11.921Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="24-两两交换链表中的节点"><a href="#24-两两交换链表中的节点" class="headerlink" title="24. 两两交换链表中的节点"></a>24. 两两交换链表中的节点</h1><p>用虚拟头结点，这样会方便很多。 </p><p>本题链表操作就比较复杂了，建议大家先看视频，视频里我讲解了注意事项，为什么需要temp保存临时节点。</p><p>题目链接&#x2F;文章讲解&#x2F;视频讲解： <a href="https://programmercarl.com0024.两两交换链表中的节点.html/">https://programmercarl.com0024.%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9.html</a></p><p>状态：刚开始看题我想用双指针法去解决</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* swapPairs(ListNode* head) &#123;</span><br><span class="line">        ListNode* dummy_head = new ListNode(0);</span><br><span class="line">        dummy_head-&gt;next = head;</span><br><span class="line">        ListNode* cur = dummy_head;</span><br><span class="line">        //有了只有知道当前结点位置，才能操作下两个结点</span><br><span class="line">        while(cur-&gt;next != nullptr&amp;&amp;cur-&gt;next-&gt;next != nullptr)&#123;</span><br><span class="line">        //要先写cur-&gt;next，否则可能先访问空指针的next</span><br><span class="line">            ListNode* t = cur-&gt;next;</span><br><span class="line">            ListNode* t1 = cur-&gt;next-&gt;next-&gt;next;</span><br><span class="line">            //要记录下两个指针的位置，修改指向后会丢失方向</span><br><span class="line">            cur-&gt;next = cur-&gt;next-&gt;next;</span><br><span class="line">            cur-&gt;next-&gt;next = t;</span><br><span class="line">            t-&gt;next = t1;</span><br><span class="line">            cur = cur-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return dummy_head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="19-删除链表的倒数第N个节点"><a href="#19-删除链表的倒数第N个节点" class="headerlink" title="19.删除链表的倒数第N个节点"></a>19.删除链表的倒数第N个节点</h1><p>双指针的操作，要注意，删除第N个节点，那么我们当前遍历的指针一定要指向 第N个节点的前一个节点，建议先看视频。</p><p>题目链接&#x2F;文章讲解&#x2F;视频讲解：<a href="https://programmercarl.com/0019.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9.html">https://programmercarl.com/0019.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9.html</a></p><p>双指针法，两个指针之间间隔N+1的长度，这样慢指针指向要删除的结点的前一个结点</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* removeNthFromEnd(ListNode* head, int n) &#123;</span><br><span class="line">        ListNode* dummy_head = new ListNode(0);</span><br><span class="line">        dummy_head-&gt;next = head;</span><br><span class="line">        ListNode* fast = dummy_head;</span><br><span class="line">        ListNode* slow = dummy_head;</span><br><span class="line">        while((n+1)!=0&amp;&amp;fast!=nullptr)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        while(fast!=nullptr)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* t = slow-&gt;next;</span><br><span class="line">        slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">        delete t;</span><br><span class="line">        return dummy_head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h1 id="面试题-02-07-链表相交"><a href="#面试题-02-07-链表相交" class="headerlink" title="面试题 02.07. 链表相交"></a>面试题 02.07. 链表相交</h1><p>本题没有视频讲解，大家注意 数值相同，不代表指针相同。</p><p>题目链接&#x2F;文章讲解：<a href="https://programmercarl.com/%E9%9D%A2%E8%AF%95%E9%A2%9802.07.%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4.html">https://programmercarl.com/%E9%9D%A2%E8%AF%95%E9%A2%9802.07.%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4.html</a></p><p>没有想到利用长度差来处理</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) &#123;</span><br><span class="line">        ListNode* curA = headA;</span><br><span class="line">        ListNode* curB = headB;</span><br><span class="line">        int lenA = 0, lenB = 0;</span><br><span class="line">        while (curA != NULL) &#123; // 求链表A的长度</span><br><span class="line">            lenA++;</span><br><span class="line">            curA = curA-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        while (curB != NULL) &#123; // 求链表B的长度</span><br><span class="line">            lenB++;</span><br><span class="line">            curB = curB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        curA = headA;</span><br><span class="line">        curB = headB;</span><br><span class="line">        // 让curA为最长链表的头，lenA为其长度</span><br><span class="line">        if (lenB &gt; lenA) &#123;</span><br><span class="line">            swap (lenA, lenB);</span><br><span class="line">            swap (curA, curB);</span><br><span class="line">        &#125;</span><br><span class="line">        // 求长度差</span><br><span class="line">        int gap = lenA - lenB;</span><br><span class="line">        // 让curA和curB在同一起点上（末尾位置对齐）</span><br><span class="line">        while (gap--) &#123;</span><br><span class="line">            curA = curA-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        // 遍历curA 和 curB，遇到相同则直接返回</span><br><span class="line">        while (curA != NULL) &#123;</span><br><span class="line">            if (curA == curB) &#123;</span><br><span class="line">                return curA;</span><br><span class="line">            &#125;</span><br><span class="line">            curA = curA-&gt;next;</span><br><span class="line">            curB = curB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return NULL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h1 id="142-环形链表II"><a href="#142-环形链表II" class="headerlink" title="142.环形链表II"></a>142.环形链表II</h1><p>算是链表比较有难度的题目，需要多花点时间理解 确定环和找环入口，建议先看视频。</p><p>题目链接&#x2F;文章讲解&#x2F;视频讲解：<a href="https://programmercarl.com/0142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II.html">https://programmercarl.com/0142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II.html</a></p><p>题目有难度第一次看的时候没有头绪</p><p>利用双指针法来判断有没有环<br>快指针每次走两个结点<br>慢指针每次走一个结点<br>相当于每次缩短一个结点的距离，不会在环中错过<br>如果差值不是一个结点就可能错过</p>]]></content>
+    
+    
+    <summary type="html">链表深化</summary>
+    
+    
+    
+    <category term="算法" scheme="https://xadmc.gitee.io/stouyx/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://xadmc.gitee.io/stouyx/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>day3</title>
@@ -403,27 +424,6 @@
     
     
     <summary type="html">构造函数详解</summary>
-    
-    
-    
-    <category term="语法" scheme="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-    <category term="C++" scheme="https://xadmc.gitee.io/stouyx/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>隐藏重载覆盖</title>
-    <link href="https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/"/>
-    <id>https://xadmc.gitee.io/stouyx/2023/05/09/%E9%9A%90%E8%97%8F%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96/</id>
-    <published>2023-05-09T02:04:03.000Z</published>
-    <updated>2023-05-11T04:29:30.579Z</updated>
-    
-    <content type="html"><![CDATA[<p>存在父子类继承关系时，若有同名成员函数同时存在，会发生隐藏、覆盖和重载这几种情况。</p><h2 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h2><p>子类对象优先考虑子类域自身成员（成员变量和成员函数）<br>    隐藏发生的主要原因，就是当子类有父类的同名成员时，子类对象访问该成员时，会发生冲突。所以编译器的处理方式是，优先考虑子类域中的自身成员。即，子类对象访问某成员时，如ch.m_m 或者ch.f(),成员变量和成员函数都一样。编译器首先在子类域中检索，如果在子类域中找到该成员，则检索结束，返回该成员进行访问。如果在子类域中找不到该成员，则去父类域中检索。如果父类域中存在，则返回该成员进行访问，如果父类域中也不存在，则编译错误，该成员无效。</p><p>  当父子类域都存在同一成员时，编译器优先在子类中检索，就算父类域中也存在该同名成员，也不会被检索到。因此，父类域中的该成员被子类域中的该同名成员隐藏，即访问时完全以为该成员不存在，如果想访问父类域中的该成员，只能通过显示调用的方式，即：ch.Father::m_m;<br>重载：相同域的同名不同参函数</p><h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>　　<br>　　重载必须是发生在同一个域中的两个同名不同形参之间的。如果一个在父类域一个在子类域，是不会存在重载的，属于隐藏的情况。调用时，只会在子类域中搜索，如果形参不符合，会认为没有该函数，而不会去父类域中搜索。<br>覆盖是指派生类函数覆盖基类函数，特征是：<br>（1）不同的范围（分别位于派生类与基类）；<br>（2）函数名字相同；<br>（3）参数相同；<br>（4）基类函数必须有virtual 关键字。<br>令人迷惑的隐藏规则<br>本来仅仅区别重载与覆盖并不算困难，但是C++的隐藏规则使问题复杂性陡然增加。<br>这里“隐藏”是指派生类的函数屏蔽了与其同名的基类函数，规则如下：<br>（1）如果派生类的函数与基类的函数同名，但是参数不同。此时，不论有无virtual<br>关键字，基类的函数将被隐藏（注意别与重载混淆）。<br>（2）如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual<br>关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）。</p>]]></content>
-    
-    
-    <summary type="html">对隐藏覆盖重载进行区分</summary>
     
     
     
