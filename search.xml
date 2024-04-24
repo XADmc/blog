@@ -519,7 +519,7 @@
       </tags>
   </entry>
   <entry>
-    <title>移除元素</title>
+    <title>数组2</title>
     <url>/Stouyx/2024/01/25/%E6%95%B0%E7%BB%842/</url>
     <content><![CDATA[<h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><p>题目链接：<br><a href="https://leetcode.cn/problems/remove-element/">https://leetcode.cn/problems/remove-element/</a> </p>
 <p>文章讲解：<br><a href="https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html">https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html</a></p>
@@ -630,7 +630,7 @@
       </tags>
   </entry>
   <entry>
-    <title>数组2</title>
+    <title>数组3</title>
     <url>/Stouyx/2024/01/26/%E6%95%B0%E7%BB%843/</url>
     <content><![CDATA[<h2 id="977-有序数组的平方"><a href="#977-有序数组的平方" class="headerlink" title="977.有序数组的平方"></a>977.有序数组的平方</h2><p>题目建议： 本题关键在于理解双指针思想 </p>
 <p>题目链接：<br><a href="https://leetcode.cn/problems/squares-of-a-sorted-array/">https://leetcode.cn/problems/squares-of-a-sorted-array/</a><br>文章讲解：<br><a href="https://programmercarl.com0977.%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B%E6%96%B9.html">https://programmercarl.com0977.%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B%E6%96%B9.html</a><br>视频讲解：<br><a href="https://www.bilibili.com/video/BV1QB4y1D7ep">https://www.bilibili.com/video/BV1QB4y1D7ep</a> </p>
