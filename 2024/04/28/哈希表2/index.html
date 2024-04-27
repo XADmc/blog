@@ -19,26 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xadmc.gitee.io","root":"/Stouyx/","images":"/Stouyx/images","scheme":"Pisces","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/Stouyx/js/config.js"></script>
 
-    <meta name="description" content="别摆了，洗洗睡吧">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Stouyx&#39;s blog">
-<meta property="og:url" content="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/page/2/index.html">
+    <meta name="description" content="哈希表深化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="哈希表2">
+<meta property="og:url" content="https://xadmc.gitee.io/stouyx/2024/04/28/%E5%93%88%E5%B8%8C%E8%A1%A82/index.html">
 <meta property="og:site_name" content="Stouyx&#39;s blog">
-<meta property="og:description" content="别摆了，洗洗睡吧">
+<meta property="og:description" content="哈希表深化">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-27T17:56:36.000Z">
+<meta property="article:modified_time" content="2024-04-27T18:04:00.575Z">
 <meta property="article:author" content="Wang Yuxuan">
-<meta property="article:tag" content="NUAA">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://xadmc.gitee.io/stouyx/categories/%E8%AF%AD%E6%B3%95/page/2/">
+<link rel="canonical" href="https://xadmc.gitee.io/stouyx/2024/04/28/%E5%93%88%E5%B8%8C%E8%A1%A82/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/语法/page/2/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":"","permalink":"https://xadmc.gitee.io/stouyx/2024/04/28/%E5%93%88%E5%B8%8C%E8%A1%A82/","path":"2024/04/28/哈希表2/","title":"哈希表2"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: 语法 | Stouyx's blog</title>
+<title>哈希表2 | Stouyx's blog</title>
   
 
 
@@ -99,7 +101,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -112,6 +114,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E6%95%B0%E7%9B%B8%E5%8A%A02"><span class="nav-number">1.</span> <span class="nav-text">四数相加2</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,73 +167,168 @@
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">语法
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xadmc.gitee.io/stouyx/2024/04/28/%E5%93%88%E5%B8%8C%E8%A1%A82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Stouyx/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Yuxuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Stouyx's blog">
+      <meta itemprop="description" content="别摆了，洗洗睡吧">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="哈希表2 | Stouyx's blog">
+      <meta itemprop="description" content="哈希表深化">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          哈希表2
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="创建时间：2024-04-28 01:56:36 / 修改时间：02:04:00" itemprop="dateCreated datePublished" datetime="2024-04-28T01:56:36+08:00">2024-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Stouyx/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  
+</div>
+
+            <div class="post-description">哈希表深化</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="四数相加2"><a href="#四数相加2" class="headerlink" title="四数相加2"></a>四数相加2</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/4sum-ii/description/">四数相加</a></p>
+<p>题目：<br>给你四个整数数组 nums1、nums2、nums3 和 nums4 ，数组长度都是 n ，请你计算有多少个元组 (i, j, k, l) 能满足：</p>
+<p>0 &lt;&#x3D; i, j, k, l &lt; n<br>nums1[i] + nums2[j] + nums3[k] + nums4[l] &#x3D;&#x3D; 0</p>
+<p>示例 1：</p>
+<p>输入：nums1 &#x3D; [1,2], nums2 &#x3D; [-2,-1], nums3 &#x3D; [-1,2], nums4 &#x3D; [0,2]<br>输出：2<br>解释：<br>两个元组如下：</p>
+<ol>
+<li>(0, 0, 0, 1) -&gt; nums1[0] + nums2[0] + nums3[0] + nums4[1] &#x3D; 1 + (-2) + (-1) + 2 &#x3D; 0</li>
+<li>(1, 1, 0, 0) -&gt; nums1[1] + nums2[1] + nums3[0] + nums4[0] &#x3D; 2 + (-1) + (-1) + 0 &#x3D; 0<br>示例 2：</li>
+</ol>
+<p>输入：nums1 &#x3D; [0], nums2 &#x3D; [0], nums3 &#x3D; [0], nums4 &#x3D; [0]<br>输出：1</p>
+<p>  提示：</p>
+<p>n &#x3D;&#x3D; nums1.length<br>n &#x3D;&#x3D; nums2.length<br>n &#x3D;&#x3D; nums3.length<br>n &#x3D;&#x3D; nums4.length<br>1 &lt;&#x3D; n &lt;&#x3D; 200<br>-228 &lt;&#x3D; nums1[i], nums2[i], nums3[i], nums4[i] &lt;&#x3D; 228</p>
+<p>思考：</p>
+<ol>
+<li>每个和对应一个次数-&gt;用map</li>
+<li>两两成对降低时间复杂度(难想)</li>
+<li>与哈希其他求和差不多，寻找是否出现过其相反数</li>
+</ol>
+<pre><code>class Solution &#123;
+public:
+    int fourSumCount(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2, vector&lt;int&gt;&amp; nums3, vector&lt;int&gt;&amp; nums4) &#123;
+        int count = 0;
+        unordered_map&lt;int,int&gt; m;
+        for(int a:nums1)&#123;
+            for(int b:nums2)&#123;
+                m[a+b]++;
+            &#125;
+        &#125;
+        for(int c:nums3)&#123;
+            for(int d:nums4)&#123;
+                if(m.find(-c-d)!=m.end())&#123;
+                    count += m[-c-d];
+                &#125;
+            &#125;
+        &#125;
+        return count;
+    &#125;
+&#125;;
+```   
+</code></pre>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-05-08T18:32:04+08:00"
-              content="2023-05-08">
-          05-08
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/Stouyx/images/wechatpay.jpg">
       </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Stouyx/2023/05/08/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" itemprop="url">
-            <span itemprop="name">运算符重载</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-05-08T15:32:04+08:00"
-              content="2023-05-08">
-          05-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Stouyx/2023/05/08/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/" itemprop="url">
-            <span itemprop="name">静态成员函数</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/Stouyx/categories/%E8%AF%AD%E6%B3%95/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/Stouyx/categories/%E8%AF%AD%E6%B3%95/">1</a><span class="page-number current">2</span>
-  </nav>
+</div>
+
+          <div class="post-tags">
+              <a href="/Stouyx/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Stouyx/2024/02/04/%E5%93%88%E5%B8%8C%E8%A1%A81/" rel="prev" title="哈希表1">
+                  <i class="fa fa-chevron-left"></i> 哈希表1
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 
 </div>
   </main>

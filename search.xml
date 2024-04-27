@@ -664,4 +664,55 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>哈希表2</title>
+    <url>/Stouyx/2024/04/28/%E5%93%88%E5%B8%8C%E8%A1%A82/</url>
+    <content><![CDATA[<h1 id="四数相加2"><a href="#四数相加2" class="headerlink" title="四数相加2"></a>四数相加2</h1><p><a href="https://leetcode.cn/problems/4sum-ii/description/">四数相加</a></p>
+<p>题目：<br>给你四个整数数组 nums1、nums2、nums3 和 nums4 ，数组长度都是 n ，请你计算有多少个元组 (i, j, k, l) 能满足：</p>
+<p>0 &lt;&#x3D; i, j, k, l &lt; n<br>nums1[i] + nums2[j] + nums3[k] + nums4[l] &#x3D;&#x3D; 0</p>
+<p>示例 1：</p>
+<p>输入：nums1 &#x3D; [1,2], nums2 &#x3D; [-2,-1], nums3 &#x3D; [-1,2], nums4 &#x3D; [0,2]<br>输出：2<br>解释：<br>两个元组如下：</p>
+<ol>
+<li>(0, 0, 0, 1) -&gt; nums1[0] + nums2[0] + nums3[0] + nums4[1] &#x3D; 1 + (-2) + (-1) + 2 &#x3D; 0</li>
+<li>(1, 1, 0, 0) -&gt; nums1[1] + nums2[1] + nums3[0] + nums4[0] &#x3D; 2 + (-1) + (-1) + 0 &#x3D; 0<br>示例 2：</li>
+</ol>
+<p>输入：nums1 &#x3D; [0], nums2 &#x3D; [0], nums3 &#x3D; [0], nums4 &#x3D; [0]<br>输出：1</p>
+<p>  提示：</p>
+<p>n &#x3D;&#x3D; nums1.length<br>n &#x3D;&#x3D; nums2.length<br>n &#x3D;&#x3D; nums3.length<br>n &#x3D;&#x3D; nums4.length<br>1 &lt;&#x3D; n &lt;&#x3D; 200<br>-228 &lt;&#x3D; nums1[i], nums2[i], nums3[i], nums4[i] &lt;&#x3D; 228</p>
+<p>思考：</p>
+<ol>
+<li>每个和对应一个次数-&gt;用map</li>
+<li>两两成对降低时间复杂度(难想)</li>
+<li>与哈希其他求和差不多，寻找是否出现过其相反数</li>
+</ol>
+<pre><code>class Solution &#123;
+public:
+    int fourSumCount(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2, vector&lt;int&gt;&amp; nums3, vector&lt;int&gt;&amp; nums4) &#123;
+        int count = 0;
+        unordered_map&lt;int,int&gt; m;
+        for(int a:nums1)&#123;
+            for(int b:nums2)&#123;
+                m[a+b]++;
+            &#125;
+        &#125;
+        for(int c:nums3)&#123;
+            for(int d:nums4)&#123;
+                if(m.find(-c-d)!=m.end())&#123;
+                    count += m[-c-d];
+                &#125;
+            &#125;
+        &#125;
+        return count;
+    &#125;
+&#125;;
+```   
+</code></pre>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
